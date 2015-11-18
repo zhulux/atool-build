@@ -1,7 +1,6 @@
 import { join } from 'path';
 import shelljs from 'shelljs';
 import webpack from 'webpack';
-import assign from 'object-assign';
 import printResult from './printResult';
 import mergeCustomConfig from './mergeCustomConfig';
 import commonConfig from './webpack.common.config';
@@ -14,12 +13,12 @@ export default function(args) {
   if (!args.debug) {
     webpackConfig.plugins = (webpackConfig.plugins || []).concat([
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('production')
+        'process.env.NODE_ENV': JSON.stringify('production'),
       }),
       new webpack.optimize.UglifyJsPlugin({
         output: {
-          ascii_only: true
-        }
+          ascii_only: true,
+        },
       }),
     ]);
   }
@@ -32,19 +31,19 @@ export default function(args) {
   // Clean output dir first.
   shelljs.rm('-rf', join(cwd, webpackConfig.output.path));
 
+  function doneHandler(err, stats) {
+    printResult(stats);
+    console.log(stats.toString());
+    if (err) {
+      console.error(err);
+    }
+  }
+
   // Run compiler.
-  var compiler = webpack(webpackConfig);
+  const compiler = webpack(webpackConfig);
   if (args.watch) {
     compiler.watch(args.watch || 200, doneHandler);
   } else {
     compiler.run(doneHandler);
-  }
-};
-
-function doneHandler(err, stats) {
-  printResult(stats);
-  console.log(stats.toString());
-  if (err) {
-    console.error(err);
   }
 }

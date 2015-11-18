@@ -21,7 +21,7 @@ export default function mergeCustomConfig(webpackConfig, baseDir, type) {
     return customConfig;
   } else if (typeof customConfig === 'function') {
     return customConfig(webpackConfig, type);
-  } else {
-    throw new Error('Return of webpack.config.js must be object or function.');
   }
+
+  throw new Error('Return of webpack.config.js must be object or function.');
 }

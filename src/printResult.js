@@ -1,7 +1,5 @@
-'use strict';
-
-export default function printResult(stats) {
-  stats = stats.toJson();
+export default function printResult(_stats) {
+  const stats = _stats.toJson();
 
   if (stats.errors && stats.errors.length) {
     let hasChildError = false;
@@ -20,4 +18,4 @@ export default function printResult(stats) {
     }
     console.log();
   }
-};
+}
