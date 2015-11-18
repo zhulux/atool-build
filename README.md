@@ -1,14 +1,15 @@
-# antd-build
+# atool-build
 
-[![NPM version](https://img.shields.io/npm/v/antd-build.svg?style=flat)](https://npmjs.org/package/antd-build)
+[![NPM version](https://img.shields.io/npm/v/atool-build.svg?style=flat)](https://npmjs.org/package/atool-build)
 
-Build tool for [Ant Design](https://github.com/ant-design/ant-design).
+Build tool based on webpack.
 
 ----
 
-## 安装
+## Install
 
 ```bash
-$ npm i antd-build --save
+$ npm i atool-build --save
 ```
+
 
