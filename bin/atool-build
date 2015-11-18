@@ -8,6 +8,8 @@ program
   .option('-o, --output-path <path>', 'output path')
   .option('-w, --watch [delay]', 'watch file changes and rebuild')
   .option('--debug', 'build without compress')
+  .option('--hash', 'build with hash and output map.json')
+  .option('--devtool <type>', 'sourcemap generate method')
   .parse(process.argv);
 
 require('../src/build')(program);

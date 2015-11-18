@@ -1,3 +1,4 @@
+
 export default function printResult(_stats) {
   const stats = _stats.toJson();
 
