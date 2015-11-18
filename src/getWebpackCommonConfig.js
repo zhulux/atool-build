@@ -34,12 +34,13 @@ export default function getWebpackCommonConfig(args) {
       loaders: [
         {
           test: /\.jsx$/,
-          loaders: ['babel?stage=0'],
+          exclude: /node_modules/,
+          loaders: ['babel?presets[]=react,presets[]=es2015'],
         },
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: 'babel?stage=0',
+          loader: 'babel?presets[]=react,presets[]=es2015',
         },
         {
           test: /\.css$/,
