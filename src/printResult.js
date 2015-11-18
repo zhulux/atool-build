@@ -3,16 +3,16 @@ export default function printResult(_stats) {
 
   if (stats.errors && stats.errors.length) {
     let hasChildError = false;
-    stats.children.forEach(function(item) {
+    stats.children.forEach(item => {
       if (item.errors) {
         hasChildError = true;
-        item.errors.forEach(function(err) {
+        item.errors.forEach(err => {
           console.error('error', err);
         });
       }
     });
     if (!hasChildError) {
-      stats.errors.forEach(function(err) {
+      stats.errors.forEach(err => {
         console.error('error', err);
       });
     }
