@@ -2,9 +2,9 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import { join } from 'path';
 
-const pkg = require(join(process.cwd(), 'package.json'));
-
 export default function getWebpackCommonConfig(args) {
+  const pkg = require(join(args.cwd, 'package.json'));
+
   const jsFileName = args.hash ? '[name]-[chunkhash].js' : '[name].js';
   const cssFileName = args.hash ? '[name]-[chunkhash].css' : '[name].css';
   const commonName = args.hash ? 'common-[chunkhash].js' : 'common.js';

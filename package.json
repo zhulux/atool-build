@@ -46,8 +46,12 @@
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "testPathIgnorePatterns": [
+      "__tests__/fixtures",
+      "__tests__/expect"
+    ],
     "testPathDirs": [
-      "<rootDir>/lib"
+      "<rootDir>/src"
     ],
     "unmockedModulePathPatterns": [],
     "verbose": true

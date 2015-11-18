@@ -5,10 +5,8 @@ import printResult from './printResult';
 import mergeCustomConfig from './mergeCustomConfig';
 import getWebpackCommonConfig from './getWebpackCommonConfig';
 
-const cwd = process.cwd();
-
 function getWebpackConfig(args) {
-  const webpackConfig = mergeCustomConfig(getWebpackCommonConfig(args), cwd, 'production');
+  const webpackConfig = mergeCustomConfig(getWebpackCommonConfig(args), args.cwd, 'production');
 
   // Config outputPath.
   if (args.outputPath) {
@@ -42,7 +40,9 @@ function getWebpackConfig(args) {
   return webpackConfig;
 }
 
-export default function(args) {
+export default function(args, callback) {
+  args.cwd = args.cwd || process.cwd();
+
   // Get config.
   const webpackConfig = getWebpackConfig(args);
 
@@ -54,6 +54,9 @@ export default function(args) {
     console.log(stats.toString());
     if (err) {
       console.error(err);
+    }
+    if (callback) {
+      callback(err);
     }
   }
 
