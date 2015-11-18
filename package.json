@@ -1,19 +1,20 @@
 {
-  "name": "antd-build",
+  "name": "atool-build",
   "version": "0.4.3",
-  "description": "Build tool for Ant Design",
+  "description": "Build tool based on webpack",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/antd-build"
+    "url": "https://github.com/ant-tool/atool-build"
   },
-  "homepage": "https://github.com/ant-design/antd-build",
+  "homepage": "https://github.com/ant-tool/atool-build",
   "mai": "chencheng <sorrycc@gmail.com>",
   "license": "MIT",
   "bin": {
     "antd-build": "./bin/antd-build"
   },
   "scripts": {
-    "publish": "git push origin"
+    "publish": "git push origin master",
+    "test": "jest"
   },
   "dependencies": {
     "autoprefixer-loader": "~2.0.0",
@@ -24,10 +25,23 @@
     "css-loader": "~0.21.0",
     "extract-text-webpack-plugin": "~0.8.2",
     "file-loader": "~0.8.4",
+    "is-plain-object": "~2.0.1",
     "less-loader": "~2.2.0",
     "object-assign": "~3.0.0",
     "shelljs": "~0.5.1",
     "url-loader": "~0.5.6",
     "webpack": "~1.12.2"
+  },
+  "devDependencies": {
+    "babel-jest": "~5.3.0",
+    "jest-cli": "~0.7.1"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "testPathDirs": [
+      "<rootDir>/lib"
+    ],
+    "unmockedModulePathPatterns": [],
+    "verbose": true
   }
 }
