@@ -22,7 +22,7 @@ export default function getWebpackCommonConfig(args) {
       chunkFilename: jsFileName,
     },
 
-    devtool: 'devtool' in args ? args.devtool : '#source-map',
+    devtool: args.devtool,
 
     resolve: {
       root: join(__dirname, '../node_modules'),

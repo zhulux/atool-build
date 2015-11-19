@@ -28,7 +28,6 @@ function testBuild(args, fixture) {
     const defaultConfig = {
       cwd,
       debug: true,
-      devtool: '',
     };
 
     build(assign({}, defaultConfig, args), err => {

@@ -9,7 +9,7 @@ program
   .option('-w, --watch [delay]', 'watch file changes and rebuild')
   .option('--debug', 'build without compress')
   .option('--hash', 'build with hash and output map.json')
-  .option('--devtool <type>', 'sourcemap generate method')
+  .option('--devtool <devtool>', 'sourcemap generate method, default is null')
   .parse(process.argv);
 
 require('../src/build')(program);
