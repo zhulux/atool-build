@@ -34,6 +34,7 @@
     "extract-text-webpack-plugin": "~0.8.2",
     "file-loader": "~0.8.4",
     "is-plain-object": "~2.0.1",
+    "less": "~2.3.1",
     "less-loader": "~2.2.0",
     "map-json-webpack-plugin": "~1.0.0",
     "rimraf": "~2.4.3",
@@ -65,9 +66,6 @@
     "presets": [
       "es2015",
       "stage-0"
-    ],
-    "only": [
-      "src/*.js"
     ],
     "plugins": [
       "add-module-exports"
