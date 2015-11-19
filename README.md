@@ -12,5 +12,3 @@ Build tool based on webpack.
 ```bash
 $ npm i atool-build --save
 ```
-
-

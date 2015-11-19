@@ -9,6 +9,11 @@ export default function getWebpackCommonConfig(args) {
   const cssFileName = args.hash ? '[name]-[chunkhash].css' : '[name].css';
   const commonName = args.hash ? 'common-[chunkhash].js' : 'common.js';
 
+  const babelQuery = {
+    presets: ['stage-0', 'es2015', 'react'],
+    plugins: ['add-module-exports'],
+  };
+
   return {
 
     output: {
@@ -35,12 +40,14 @@ export default function getWebpackCommonConfig(args) {
         {
           test: /\.jsx$/,
           exclude: /node_modules/,
-          loaders: ['babel?presets[]=react,presets[]=es2015'],
+          loader: 'babel',
+          query: babelQuery,
         },
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: 'babel?presets[]=react,presets[]=es2015',
+          loader: 'babel',
+          query: babelQuery,
         },
         {
           test: /\.css$/,
