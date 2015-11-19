@@ -39,19 +39,15 @@ function testBuild(args, fixture) {
 }
 
 describe('lib/build', () => {
-
   pit('should build normally', () => {
     return testBuild({hash:true}, 'build-normal');
   });
-
   pit('should support decorator', () => {
     return testBuild({}, 'build-decorator');
   });
-
   pit('should support add-module-exports', () => {
     return testBuild({}, 'build-add-module-exports');
   });
-
   pit('should support jsx', () => {
     return testBuild({}, 'build-jsx');
   });
