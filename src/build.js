@@ -1,7 +1,6 @@
 import { join } from 'path';
 import rimraf from 'rimraf';
 import webpack from 'webpack';
-import printResult from './printResult';
 import mergeCustomConfig from './mergeCustomConfig';
 import getWebpackCommonConfig from './getWebpackCommonConfig';
 
@@ -50,9 +49,19 @@ export default function(args, callback) {
   rimraf.sync(webpackConfig.output.path);
 
   function doneHandler(err, stats) {
-    printResult(stats);
-    console.log(stats.toString());
+    const { errors} = stats.toJson();
+    if (errors && errors.length) {
+      process.on('exit', function exitHandler() {
+        process.exit(1);
+      });
+    }
+
+    console.log(stats.toString({colors: true}));
+
     if (err) {
+      process.on('exit', function exitHandler() {
+        process.exit(1);
+      });
       console.error(err);
     }
     if (callback) {
