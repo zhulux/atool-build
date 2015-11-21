@@ -1,9 +1,8 @@
-jest.autoMockOff();
-
+import 'jest.automockoff';
 import { join } from 'path';
 import { readdirSync, readFileSync } from 'fs';
-const build = require('../build');
-const assign = require('object-assign');
+import build from '../build';
+import assign from 'object-assign';
 
 function assert(actualDir, _expect) {
   const expectDir = join(__dirname, 'expect', _expect);

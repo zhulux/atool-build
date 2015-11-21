@@ -1,7 +1,6 @@
-jest.autoMockOff();
-
+import 'jest.automockoff';
 import { join } from 'path';
-const mergeCustomConfig = require('../mergeCustomConfig');
+import mergeCustomConfig from '../mergeCustomConfig';
 
 describe('lib/mergeCustomConfig', () => {
 
