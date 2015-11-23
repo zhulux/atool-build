@@ -7,7 +7,7 @@
     "url": "https://github.com/ant-tool/atool-build"
   },
   "homepage": "https://github.com/ant-tool/atool-build",
-  "mai": "chencheng <sorrycc@gmail.com>",
+  "author": "chencheng <sorrycc@gmail.com>",
   "license": "MIT",
   "bin": {
     "atool-build": "./bin/atool-build"
