@@ -49,7 +49,7 @@ $ atool-build -h
 
 ### 配置扩展
 
-如果需要对内置的 webpack 配置进行修改, 可在项目根目录新建 `webpack.config.js` .
+如果需要对内置的 webpack 配置进行修改, 可在项目根目录新建 `webpack.config.js` 进行覆盖或扩展.
 
 #### 覆盖模式
 
