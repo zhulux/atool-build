@@ -1,6 +1,6 @@
 {
   "name": "atool-build",
-  "version": "0.4.3",
+  "version": "0.1.0-beta1",
   "description": "Build tool based on webpack",
   "repository": {
     "type": "git",
@@ -15,7 +15,6 @@
   "scripts": {
     "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
     "prepublish": "npm run build",
-    "publish": "git push origin master",
     "test": "jest",
     "lint": "eslint --ext .js src"
   },
