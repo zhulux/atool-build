@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 var program = require('commander');
-require('babel-core/register');
 
 program
   .version(require('../package').version, '-v, --version')
@@ -12,4 +11,8 @@ program
   .option('--devtool <devtool>', 'sourcemap generate method, default is null')
   .parse(process.argv);
 
-require('../src/build')(program);
+require('babel-core-resolve-enhance')({
+  dirname: __dirname,
+});
+
+require('../lib/build')(program);
