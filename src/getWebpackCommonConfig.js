@@ -2,6 +2,14 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import { join } from 'path';
 
+try {
+  require('babel-core-resolve-enhance')({
+    dirname: __dirname,
+  });
+} catch (e) {
+  console.error(`[Error] ${e.message}`);
+}
+
 export default function getWebpackCommonConfig(args) {
   const pkg = require(join(args.cwd, 'package.json'));
 
