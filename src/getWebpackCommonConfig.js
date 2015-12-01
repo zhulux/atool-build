@@ -10,8 +10,8 @@ export default function getWebpackCommonConfig(args) {
   const commonName = args.hash ? 'common-[chunkhash].js' : 'common.js';
 
   const babelQuery = {
-    presets: ['stage-0', 'es2015', 'react'],
-    plugins: ['add-module-exports'],
+    presets: ['es2015', 'react', 'stage-0'],
+    plugins: ['add-module-exports', 'transform-decorators'],
   };
 
   return {
