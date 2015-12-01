@@ -44,6 +44,9 @@ describe('lib/build', () => {
   pit('should support class property', () => {
     return testBuild({}, 'build-class-property');
   });
+  pit('should support less', () => {
+    return testBuild({}, 'build-less');
+  });
   pit('should support add-module-exports', () => {
     return testBuild({}, 'build-add-module-exports');
   });

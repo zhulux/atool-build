@@ -61,7 +61,7 @@ export default function getWebpackCommonConfig(args) {
           loader: ExtractTextPlugin.extract(
             'css?sourceMap!' +
             'autoprefixer-loader!' +
-            `less?{"sourceMap":true,"modifyVars":${JSON.stringify(pkg.theme || {})}`
+            `less?{"sourceMap":true,"modifyVars":${JSON.stringify(pkg.theme || {})}}`
           ),
         },
         {test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&minetype=application/font-woff'},
