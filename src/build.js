@@ -4,6 +4,14 @@ import webpack from 'webpack';
 import mergeCustomConfig from './mergeCustomConfig';
 import getWebpackCommonConfig from './getWebpackCommonConfig';
 
+try {
+  require('babel-core-resolve-enhance')({
+    dirname: __dirname,
+  });
+} catch (e) {
+  console.error(`[Error] ${e.message}`);
+}
+
 function getWebpackConfig(args) {
   const webpackConfig = mergeCustomConfig(getWebpackCommonConfig(args), args.cwd, 'production');
 
