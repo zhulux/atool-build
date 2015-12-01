@@ -11,7 +11,7 @@ export default function getWebpackCommonConfig(args) {
 
   const babelQuery = {
     presets: ['es2015', 'react', 'stage-0'],
-    plugins: ['add-module-exports', 'transform-decorators'],
+    plugins: ['add-module-exports'],
   };
 
   return {
