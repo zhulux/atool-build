@@ -56,7 +56,7 @@ $ atool-build -h
 让 `webpack.config.js` 输出 `Plain Object`, 比如:
 
 ```javascript
-export default {
+module.exports = {
   entry: {
     'a': './a.js',
   },
@@ -68,8 +68,9 @@ export default {
 让 `webpack.config.js` 输出 `Function`, 比如:
 
 ```javascript
-export default function(webpackConfig, environment) {
-  webpackConfig.output.path = join(__dirname, './public');
+var path = require("path")
+module.exports = function(webpackConfig, environment) {
+  webpackConfig.output.path = path.join(__dirname, './public');
   return webpackConfig;
 }
 ```
