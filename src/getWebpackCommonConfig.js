@@ -22,6 +22,18 @@ export default function getWebpackCommonConfig(args) {
     plugins: ['add-module-exports'],
   };
 
+  const emptyBuildins = ['child_process', 'cluster', 'dgram', 'dns', 'fs', 'module', 'net', 'readline', 'repl', 'tls'];
+
+  const browser = pkg.browser || {};
+
+  const node = emptyBuildins.reduce((obj, name)=>{
+    if ( !(name in browser) ) {
+      obj[name] = 'empty';
+    }
+    return obj;
+  }, {});
+
+
   return {
 
     output: {
@@ -42,6 +54,8 @@ export default function getWebpackCommonConfig(args) {
     },
 
     entry: pkg.entry,
+
+    node,
 
     module: {
       loaders: [
