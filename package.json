@@ -16,6 +16,7 @@
     "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
     "prepublish": "npm run build",
     "test": "jest",
+    "coveralls": "jest && cat ./coverage/lcov.info | coveralls",
     "lint": "eslint --ext .js src"
   },
   "pre-commit": [
@@ -47,6 +48,7 @@
   "devDependencies": {
     "babel-cli": "~6.2.0",
     "babel-jest": "~6.0.1",
+    "coveralls": "~2.11.4",
     "eslint": "~1.9.0",
     "eslint-config-airbnb": "~1.0.0",
     "jest-cli": "~0.7.1",
