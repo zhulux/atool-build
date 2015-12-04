@@ -56,4 +56,7 @@ describe('lib/build', () => {
   pit('should support json', () => {
     return testBuild({}, 'build-json');
   });
+  pit('should support node builtins', () => {
+    return testBuild({}, 'build-node-builtins');
+  });
 });
