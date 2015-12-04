@@ -53,4 +53,7 @@ describe('lib/build', () => {
   pit('should support jsx', () => {
     return testBuild({}, 'build-jsx');
   });
+  pit('should support json', () => {
+    return testBuild({}, 'build-json');
+  });
 });
