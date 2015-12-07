@@ -96,10 +96,6 @@ export default function getWebpackCommonConfig(args) {
       ],
     },
 
-    externals: {
-      jquery: 'window.jQuery',
-    },
-
     plugins: [
       new webpack.optimize.CommonsChunkPlugin('common', commonName),
       new ExtractTextPlugin(cssFileName, {
