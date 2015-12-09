@@ -42,7 +42,7 @@ function getWebpackConfig(args) {
     ]);
   }
 
-  webpackConfig = mergeCustomConfig(webpackConfig, args.cwd, args.debug ? 'development' : 'production');
+  webpackConfig = mergeCustomConfig(webpackConfig, join(args.cwd, args.config || 'webpack.config.js'), args.debug ? 'development' : 'production');
 
   return webpackConfig;
 }

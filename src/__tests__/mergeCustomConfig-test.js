@@ -6,24 +6,28 @@ describe('lib/mergeCustomConfig', () => {
 
   it('should not replace if no config', () => {
     const baseDir = join(__dirname, 'fixtures/not-found');
-    expect(mergeCustomConfig({a:1}, baseDir)).toEqual({a:1});
+    const customConfigPath = join(baseDir,'webpack.config.js');
+    expect(mergeCustomConfig({a:1}, customConfigPath)).toEqual({a:1});
   });
 
   it('should replace if object', () => {
     const baseDir = join(__dirname, 'fixtures/mergeCustomConfig-object');
-    expect(mergeCustomConfig({a:1}, baseDir)).toEqual({b:2});
+    const customConfigPath = join(baseDir,'webpack.config.js');
+    expect(mergeCustomConfig({a:1}, customConfigPath)).toEqual({b:2});
   });
 
   it('should replace if function', () => {
     const baseDir = join(__dirname, 'fixtures/mergeCustomConfig-function');
-    expect(mergeCustomConfig({a:1}, baseDir, 'production')).toEqual({a:'p'});
-    expect(mergeCustomConfig({a:1}, baseDir, 'development')).toEqual({a:'d'});
+    const customConfigPath = join(baseDir,'webpack.config.js');
+    expect(mergeCustomConfig({a:1}, customConfigPath, 'production')).toEqual({a:'p'});
+    expect(mergeCustomConfig({a:1}, customConfigPath, 'development')).toEqual({a:'d'});
   });
 
   it('should throw error if not object or function', () => {
     const baseDir = join(__dirname, 'fixtures/mergeCustomConfig-error');
+    const customConfigPath = join(baseDir,'webpack.config.js');
     expect(() => {
-      mergeCustomConfig({a:1}, baseDir);
+      mergeCustomConfig({a:1}, customConfigPath);
     }).toThrow();
   });
 });

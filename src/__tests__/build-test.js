@@ -68,4 +68,7 @@ describe('lib/build', () => {
   pit('should support mergeCustomConfig environment development', () => {
     return testBuild({debug:true}, 'build-mergeCustomConfig-environment-development');
   });
+  pit('should support config', () => {
+    return testBuild({config:'webpack.config.path.js'}, 'build-mergeCustomConfig-path');
+  });
 });

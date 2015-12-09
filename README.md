@@ -44,6 +44,7 @@ $ atool-build -h
     --debug                   build without compress
     --hash                    build with hash and output map.json
     --devtool <devtool>       sourcemap generate method, default is null
+    --config <path>           custom config path, default is webpack.config.js   
 ```
 
 ### 配置扩展

@@ -9,6 +9,7 @@ program
   .option('--debug', 'build without compress')
   .option('--hash', 'build with hash and output map.json')
   .option('--devtool <devtool>', 'sourcemap generate method, default is null')
+  .option('--config <path>', 'custom config path, default is webpack.config.js')
   .parse(process.argv);
 
 require('../lib/build')(program);
