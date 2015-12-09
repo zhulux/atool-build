@@ -1,4 +1,4 @@
-module.exports = function(webpackConfig, environment) {
+module.exports = function(webpackConfig) {
   webpackConfig.output.filename = "[name].js";
   webpackConfig.plugins = [];
   return webpackConfig;

@@ -6,10 +6,10 @@ program
   .version(require('../package').version, '-v, --version')
   .option('-o, --output-path <path>', 'output path')
   .option('-w, --watch [delay]', 'watch file changes and rebuild')
-  .option('--debug', 'build without compress')
   .option('--hash', 'build with hash and output map.json')
   .option('--devtool <devtool>', 'sourcemap generate method, default is null')
   .option('--config <path>', 'custom config path, default is webpack.config.js')
+  .option('--nocompress','build without compress')
   .parse(process.argv);
 
 require('../lib/build')(program);

@@ -19,8 +19,10 @@ describe('lib/mergeCustomConfig', () => {
   it('should replace if function', () => {
     const baseDir = join(__dirname, 'fixtures/mergeCustomConfig-function');
     const customConfigPath = join(baseDir,'webpack.config.js');
-    expect(mergeCustomConfig({a:1}, customConfigPath, 'production')).toEqual({a:'p'});
-    expect(mergeCustomConfig({a:1}, customConfigPath, 'development')).toEqual({a:'d'});
+    process.env.NODE_ENV = 'production'
+    expect(mergeCustomConfig({a:1}, customConfigPath)).toEqual({a:'p'});
+    process.env.NODE_ENV = 'development'
+    expect(mergeCustomConfig({a:1}, customConfigPath)).toEqual({a:'d'});
   });
 
   it('should throw error if not object or function', () => {

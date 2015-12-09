@@ -41,10 +41,10 @@ $ atool-build -h
     -v, --version             output the version number
     -o, --output-path <path>  output path
     -w, --watch [delay]       watch file changes and rebuild
-    --debug                   build without compress
     --hash                    build with hash and output map.json
     --devtool <devtool>       sourcemap generate method, default is null
-    --config <path>           custom config path, default is webpack.config.js   
+    --config <path>           custom config path, default is webpack.config.js
+    --nocompress              build without compress 
 ```
 
 ### 配置扩展
@@ -69,7 +69,7 @@ module.exports = {
 
 ```javascript
 var path = require("path")
-module.exports = function(webpackConfig, environment) {
+module.exports = function(webpackConfig) {
   webpackConfig.output.path = path.join(__dirname, './public');
   return webpackConfig;
 }
@@ -78,5 +78,4 @@ module.exports = function(webpackConfig, environment) {
 参数:
 
 - `webpackConfig` -- 默认配置, 修改后返回新的配置
-- `environment` -- 环境类型, 值是 `production` 或 `development` 
 

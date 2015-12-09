@@ -5,9 +5,8 @@ import isPlainObject from 'is-plain-object';
  * Merge custom config from `webpack.config.js`.
  * @param webpackConfig {Object}
  * @param customConfigPath {String}
- * @param type {String} production or development
  */
-export default function mergeCustomConfig(webpackConfig, customConfigPath, type) {
+export default function mergeCustomConfig(webpackConfig, customConfigPath) {
   const configPath = customConfigPath;
 
   if (!existsSync(configPath)) {
@@ -19,7 +18,7 @@ export default function mergeCustomConfig(webpackConfig, customConfigPath, type)
   if (isPlainObject(customConfig)) {
     return customConfig;
   } else if (typeof customConfig === 'function') {
-    return customConfig(webpackConfig, type);
+    return customConfig(webpackConfig);
   }
 
   throw new Error('Return of webpack.config.js must be object or function.');
