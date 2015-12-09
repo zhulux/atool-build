@@ -4,8 +4,6 @@ import webpack from 'webpack';
 import mergeCustomConfig from './mergeCustomConfig';
 import getWebpackCommonConfig from './getWebpackCommonConfig';
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'production';
-
 function getWebpackConfig(args) {
   let webpackConfig = getWebpackCommonConfig(args);
 
@@ -29,7 +27,7 @@ function getWebpackConfig(args) {
 
   webpackConfig.plugins = [...webpackConfig.plugins,
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
     }),
   ];
 
