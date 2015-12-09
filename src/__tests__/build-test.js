@@ -26,7 +26,7 @@ function testBuild(args, fixture) {
 
     const defaultConfig = {
       cwd,
-      debug: true,
+      compress: false,
     };
 
     build(assign({}, defaultConfig, args), err => {
@@ -63,10 +63,11 @@ describe('lib/build', () => {
     return testBuild({hash:true}, 'build-mergeCustomConfig-plugins');
   });
   pit('should support mergeCustomConfig environment productio', () => {
-    return testBuild({debug:false}, 'build-mergeCustomConfig-environment-production');
+    return testBuild({}, 'build-mergeCustomConfig-environment-production');
   });
   pit('should support mergeCustomConfig environment development', () => {
-    return testBuild({debug:true}, 'build-mergeCustomConfig-environment-development');
+    process.env.NODE_ENV = 'development';
+    return testBuild({}, 'build-mergeCustomConfig-environment-development');
   });
   pit('should support config', () => {
     return testBuild({config:'webpack.config.path.js'}, 'build-mergeCustomConfig-path');

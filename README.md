@@ -41,35 +41,22 @@ $ atool-build -h
     -v, --version             output the version number
     -o, --output-path <path>  output path
     -w, --watch [delay]       watch file changes and rebuild
-    --debug                   build without compress
     --hash                    build with hash and output map.json
     --devtool <devtool>       sourcemap generate method, default is null
-    --config <path>           custom config path, default is webpack.config.js   
+    --config <path>           custom config path, default is webpack.config.js
+    --no-compress             build without compress 
 ```
 
 ### 配置扩展
 
-如果需要对内置的 webpack 配置进行修改, 可在项目根目录新建 `webpack.config.js` 进行覆盖或扩展.
+如果需要对内置的 webpack 配置进行修改, 可在项目根目录新建 `webpack.config.js` 进行扩展.
 
-#### 覆盖模式
-
-让 `webpack.config.js` 输出 `Plain Object`, 比如:
-
-```javascript
-module.exports = {
-  entry: {
-    'a': './a.js',
-  },
-}
-```
-
-#### 扩展模式
 
 让 `webpack.config.js` 输出 `Function`, 比如:
 
 ```javascript
 var path = require("path")
-module.exports = function(webpackConfig, environment) {
+module.exports = function(webpackConfig) {
   webpackConfig.output.path = path.join(__dirname, './public');
   return webpackConfig;
 }
@@ -78,5 +65,4 @@ module.exports = function(webpackConfig, environment) {
 参数:
 
 - `webpackConfig` -- 默认配置, 修改后返回新的配置
-- `environment` -- 环境类型, 值是 `production` 或 `development` 
 
