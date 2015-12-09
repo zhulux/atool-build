@@ -1,5 +1,4 @@
 import { existsSync } from 'fs';
-import isPlainObject from 'is-plain-object';
 
 /**
  * Merge custom config from `webpack.config.js`.
@@ -7,19 +6,15 @@ import isPlainObject from 'is-plain-object';
  * @param customConfigPath {String}
  */
 export default function mergeCustomConfig(webpackConfig, customConfigPath) {
-  const configPath = customConfigPath;
-
-  if (!existsSync(configPath)) {
+  if (!existsSync(customConfigPath)) {
     return webpackConfig;
   }
 
-  const customConfig = require(configPath);
+  const customConfig = require(customConfigPath);
 
-  if (isPlainObject(customConfig)) {
-    return customConfig;
-  } else if (typeof customConfig === 'function') {
-    return customConfig(webpackConfig);
+  if (typeof customConfig === 'function') {
+    return customConfig(webpackConfig, ...[...arguments].slice(2));
   }
 
-  throw new Error('Return of webpack.config.js must be object or function.');
+  throw new Error(`Return of ${customConfigPath} must be a function.`);
 }

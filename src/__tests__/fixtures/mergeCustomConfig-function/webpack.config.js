@@ -1,9 +1,9 @@
 
-export default function customConfig(webpackConfig) {
-  if (process.env.NODE_ENV === 'production') {
-    webpackConfig.a = 'p';
-  } else if (process.env.NODE_ENV === 'development') {
+export default function customConfig(webpackConfig,environment) {
+  if (environment === 'development') {
     webpackConfig.a = 'd';
+  } else {
+    webpackConfig.a = 'p';
   }
 
   return webpackConfig;

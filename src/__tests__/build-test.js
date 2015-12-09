@@ -26,7 +26,7 @@ function testBuild(args, fixture) {
 
     const defaultConfig = {
       cwd,
-      nocompress: true,
+      compress: false,
     };
 
     build(assign({}, defaultConfig, args), err => {

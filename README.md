@@ -44,26 +44,13 @@ $ atool-build -h
     --hash                    build with hash and output map.json
     --devtool <devtool>       sourcemap generate method, default is null
     --config <path>           custom config path, default is webpack.config.js
-    --nocompress              build without compress 
+    --no-compress             build without compress 
 ```
 
 ### 配置扩展
 
-如果需要对内置的 webpack 配置进行修改, 可在项目根目录新建 `webpack.config.js` 进行覆盖或扩展.
+如果需要对内置的 webpack 配置进行修改, 可在项目根目录新建 `webpack.config.js` 进行扩展.
 
-#### 覆盖模式
-
-让 `webpack.config.js` 输出 `Plain Object`, 比如:
-
-```javascript
-module.exports = {
-  entry: {
-    'a': './a.js',
-  },
-}
-```
-
-#### 扩展模式
 
 让 `webpack.config.js` 输出 `Function`, 比如:
 

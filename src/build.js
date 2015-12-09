@@ -14,8 +14,8 @@ function getWebpackConfig(args) {
     webpackConfig.output.path = args.outputPath;
   }
 
-  // Config if no --nocompress.
-  if (!args.nocompress) {
+  // Config if no --no-compress.
+  if (args.compress) {
     webpackConfig.plugins = [...webpackConfig.plugins,
       new webpack.optimize.UglifyJsPlugin({
         output: {
