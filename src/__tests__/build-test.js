@@ -59,4 +59,13 @@ describe('lib/build', () => {
   pit('should support node builtins', () => {
     return testBuild({}, 'build-node-builtins');
   });
+  pit('should support mergeCustomConfig plugins', () => {
+    return testBuild({hash:true}, 'build-mergeCustomConfig-plugins');
+  });
+  pit('should support mergeCustomConfig environment productio', () => {
+    return testBuild({debug:false}, 'build-mergeCustomConfig-environment-production');
+  });
+  pit('should support mergeCustomConfig environment development', () => {
+    return testBuild({debug:true}, 'build-mergeCustomConfig-environment-development');
+  });
 });

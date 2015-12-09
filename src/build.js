@@ -5,7 +5,7 @@ import mergeCustomConfig from './mergeCustomConfig';
 import getWebpackCommonConfig from './getWebpackCommonConfig';
 
 function getWebpackConfig(args) {
-  const webpackConfig = mergeCustomConfig(getWebpackCommonConfig(args), args.cwd, 'production');
+  let webpackConfig = getWebpackCommonConfig(args);
 
   // Config outputPath.
   if (args.outputPath) {
@@ -24,6 +24,12 @@ function getWebpackConfig(args) {
         },
       }),
     ]);
+  } else {
+    webpackConfig.plugins = (webpackConfig.plugins || []).concat([
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify('development'),
+      }),
+    ]);
   }
 
   // Output map.json if hash.
@@ -35,6 +41,8 @@ function getWebpackConfig(args) {
       }),
     ]);
   }
+
+  webpackConfig = mergeCustomConfig(webpackConfig, args.cwd, args.debug ? 'development' : 'production');
 
   return webpackConfig;
 }
