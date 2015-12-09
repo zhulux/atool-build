@@ -2,7 +2,6 @@
 
 [![NPM version](https://img.shields.io/npm/v/atool-build.svg?style=flat)](https://npmjs.org/package/atool-build)
 [![Build Status](https://img.shields.io/travis/ant-tool/atool-build.svg?style=flat)](https://travis-ci.org/ant-tool/atool-build)
-[![Appveyor Status](https://img.shields.io/appveyor/ci/ant-tool/atool-build.svg?style=flat)](https://ci.appveyor.com/project/sorrycc/atool-build)
 [![Coverage Status](https://img.shields.io/coveralls/ant-tool/atool-build.svg?style=flat)](https://coveralls.io/r/ant-tool/atool-build)
 [![NPM downloads](http://img.shields.io/npm/dm/atool-build.svg?style=flat)](https://npmjs.org/package/atool-build)
 
