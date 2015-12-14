@@ -72,4 +72,7 @@ describe('lib/build', () => {
   pit('should support config', () => {
     return testBuild({config:'webpack.config.path.js'}, 'build-mergeCustomConfig-path');
   });
+  pit('should support typescript', () => {
+    return testBuild({}, 'build-typescript');
+  });
 });
