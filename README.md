@@ -14,7 +14,8 @@
 - 基于 webpack 实现
 - 支持通过 `webpack.config.js` 进行扩展 webpack 的配置项
 - 支持 [stage-0](babeljs.io/docs/plugins/preset-stage-0), [es2015](https://babeljs.io/docs/plugins/preset-es2015), react 和 less
-- 支持 hash 模式的构建, 并生成映射表 `map.json`
+- 支持 hash 模式的构建, 并生成映射表 `map.json`  
+- 支持 typescript
 
 ## 安装
 
