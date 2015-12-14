@@ -19,7 +19,7 @@ export default function getWebpackCommonConfig(args) {
 
   const babelQuery = {
     presets: ['es2015', 'react', 'stage-0'],
-    plugins: ['add-module-exports'],
+    plugins: ['add-module-exports', 'typecheck'],
   };
 
   const emptyBuildins = ['child_process', 'cluster', 'dgram', 'dns', 'fs', 'module', 'net', 'readline', 'repl', 'tls'];
