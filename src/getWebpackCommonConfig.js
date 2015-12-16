@@ -60,13 +60,7 @@ export default function getWebpackCommonConfig(args) {
     module: {
       loaders: [
         {
-          test: /\.jsx$/,
-          exclude: /node_modules/,
-          loader: 'babel',
-          query: babelQuery,
-        },
-        {
-          test: /\.js$/,
+          test: /\.jsx?$/,
           exclude: /node_modules/,
           loader: 'babel',
           query: babelQuery,
