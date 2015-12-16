@@ -26,8 +26,8 @@ export default function getWebpackCommonConfig(args) {
 
   const browser = pkg.browser || {};
 
-  const node = emptyBuildins.reduce((obj, name)=>{
-    if ( !(name in browser) ) {
+  const node = emptyBuildins.reduce((obj, name) => {
+    if (!(name in browser)) {
       obj[name] = 'empty';
     }
     return obj;
@@ -80,13 +80,13 @@ export default function getWebpackCommonConfig(args) {
             `less?{"sourceMap":true,"modifyVars":${JSON.stringify(pkg.theme || {})}}`
           ),
         },
-        {test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&minetype=application/font-woff'},
-        {test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&minetype=application/font-woff'},
-        {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&minetype=application/octet-stream'},
-        {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
-        {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&minetype=image/svg+xml'},
-        {test: /\.(png|jpg|jpeg|gif)(\?v=\d+\.\d+\.\d+)?$/i, loader: 'url?limit=10000'},
-        {test: /\.json$/, loader: 'json'},
+        { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&minetype=application/font-woff' },
+        { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&minetype=application/font-woff' },
+        { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&minetype=application/octet-stream' },
+        { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },
+        { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&minetype=image/svg+xml' },
+        { test: /\.(png|jpg|jpeg|gif)(\?v=\d+\.\d+\.\d+)?$/i, loader: 'url?limit=10000' },
+        { test: /\.json$/, loader: 'json' },
       ],
     },
 

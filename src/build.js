@@ -58,14 +58,14 @@ export default function(args, callback) {
   rimraf.sync(webpackConfig.output.path);
 
   function doneHandler(err, stats) {
-    const { errors} = stats.toJson();
+    const { errors } = stats.toJson();
     if (errors && errors.length) {
       process.on('exit', function exitHandler() {
         process.exit(1);
       });
     }
 
-    console.log(stats.toString({colors: true}));
+    console.log(stats.toString({ colors: true }));
 
     if (err) {
       process.on('exit', function exitHandler() {
