@@ -21,6 +21,9 @@ function getWebpackConfig(args) {
         output: {
           ascii_only: true,
         },
+        compress: {
+          warnings: false,
+        },
       }),
     ];
   }
