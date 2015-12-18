@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import getBabelCommonConfig from './getBabelCommonConfig';
 import { join } from 'path';
 
 try {
@@ -17,10 +18,7 @@ export default function getWebpackCommonConfig(args) {
   const cssFileName = args.hash ? '[name]-[chunkhash].css' : '[name].css';
   const commonName = args.hash ? 'common-[chunkhash].js' : 'common.js';
 
-  const babelQuery = {
-    presets: ['es2015', 'react', 'stage-0'],
-    plugins: ['add-module-exports', 'typecheck'],
-  };
+  const babelQuery = getBabelCommonConfig();
 
   const emptyBuildins = ['child_process', 'cluster', 'dgram', 'dns', 'fs', 'module', 'net', 'readline', 'repl', 'tls'];
 
