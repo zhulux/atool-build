@@ -57,8 +57,6 @@ export default function getWebpackCommonConfig(args) {
 
     node,
 
-    babel: babelQuery,
-
     module: {
       preLoaders: [{
         test: /\.jsx?$/,
