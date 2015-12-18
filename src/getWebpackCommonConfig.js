@@ -58,11 +58,6 @@ export default function getWebpackCommonConfig(args) {
     node,
 
     module: {
-      preLoaders: [{
-        test: /\.jsx?$/,
-        exclude: /(__tests__|node_modules|bower_components)/,
-        loader: 'isparta'
-      }],
       loaders: [
         {
           test: /\.jsx?$/,
