@@ -48,7 +48,7 @@ export default function getWebpackCommonConfig(args) {
     },
 
     resolveLoader: {
-      modulesDirectories: ['node_modules', join(__dirname, '../node_modules')]
+      modulesDirectories: ['node_modules', join(__dirname, '../node_modules')],
     },
 
     entry: pkg.entry,
