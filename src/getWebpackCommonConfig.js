@@ -43,12 +43,12 @@ export default function getWebpackCommonConfig(args) {
     devtool: args.devtool,
 
     resolve: {
-      root: join(__dirname, '../node_modules'),
+      modulesDirectories: ['node_modules', join(__dirname, '../node_modules')],
       extensions: ['', '.js', '.jsx'],
     },
 
     resolveLoader: {
-      root: join(__dirname, '../node_modules'),
+      modulesDirectories: ['node_modules', join(__dirname, '../node_modules')]
     },
 
     entry: pkg.entry,
