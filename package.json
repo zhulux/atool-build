@@ -1,6 +1,6 @@
 {
   "name": "atool-build",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Build tool based on webpack",
   "repository": {
     "type": "git",
@@ -42,9 +42,7 @@
     "map-json-webpack-plugin": "~1.0.0",
     "rimraf": "~2.4.3",
     "url-loader": "~0.5.6",
-    "webpack": "~1.12.2",
-    "isparta": "~4.0.0",
-    "isparta-loader": "^2.0.0"
+    "webpack": "~1.12.2"
   },
   "devDependencies": {
     "babel-cli": "~6.3.17",
