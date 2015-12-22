@@ -56,11 +56,11 @@ $ atool-build -h
 让 `webpack.config.js` 输出 `Function`, 比如:
 
 ```javascript
-var path = require("path")
+var path = require("path");
 module.exports = function(webpackConfig) {
   webpackConfig.output.path = path.join(__dirname, './public');
   return webpackConfig;
-}
+};
 ```
 
 参数:
