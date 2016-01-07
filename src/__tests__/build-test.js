@@ -75,4 +75,7 @@ describe('lib/build', () => {
   pit('should support typescript', () => {
     return testBuild({}, 'build-typescript');
   });
+  pit('should support dedupe', () => {
+    return testBuild({}, 'build-dedupePlugin-enabled');
+  });
 });
