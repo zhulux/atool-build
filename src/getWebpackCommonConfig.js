@@ -26,7 +26,7 @@ export default function getWebpackCommonConfig(args) {
 
   const node = emptyBuildins.reduce((obj, name) => {
     if (!(name in browser)) {
-      obj[name] = 'empty';
+      return { ...obj, ...{ [name]: 'empty' } };
     }
     return obj;
   }, {});

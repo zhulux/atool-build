@@ -12,4 +12,5 @@ program
   .option('--no-compress','build without compress')
   .parse(process.argv);
 
+program.cwd = process.cwd();
 require('../lib/build')(program);

@@ -2,6 +2,10 @@
   "extends": "eslint-config-airbnb/base",
   "rules": {
     "no-console": [0],
-    "space-before-function-paren": [2, "never"]
+    "space-before-function-paren": [2, "never"],
+    "max-len": [2, 120, 2]
+  },
+  "ecmaFeatures": {
+    "experimentalObjectRestSpread": true
   }
 }

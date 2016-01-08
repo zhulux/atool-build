@@ -32,6 +32,7 @@ function getWebpackConfig(args) {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
     }),
+    new webpack.optimize.DedupePlugin(),
   ];
 
   // Output map.json if hash.
@@ -52,8 +53,6 @@ function getWebpackConfig(args) {
 }
 
 export default function(args, callback) {
-  args.cwd = args.cwd || process.cwd();
-
   // Get config.
   const webpackConfig = getWebpackConfig(args);
 
