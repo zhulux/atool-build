@@ -52,10 +52,7 @@ function getWebpackConfig(args) {
   return webpackConfig;
 }
 
-export default function(arg, callback) {
-  const args = arg;
-  args.cwd = args.cwd || process.cwd();
-
+export default function(args, callback) {
   // Get config.
   const webpackConfig = getWebpackConfig(args);
 

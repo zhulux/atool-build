@@ -25,11 +25,10 @@ export default function getWebpackCommonConfig(args) {
   const browser = pkg.browser || {};
 
   const node = emptyBuildins.reduce((obj, name) => {
-    const prev = obj;
     if (!(name in browser)) {
-      prev[name] = 'empty';
+      return { ...obj, ...{ [name]: 'empty' } };
     }
-    return prev;
+    return obj;
   }, {});
 
 
