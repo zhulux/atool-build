@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import getBabelCommonConfig from './getBabelCommonConfig';
 import { join } from 'path';
+import autoprefixer from 'autoprefixer';
 
 try {
   require('babel-core-resolve-enhance')({
@@ -72,14 +73,14 @@ export default function getWebpackCommonConfig(args) {
           test: /\.css$/,
           loader: ExtractTextPlugin.extract(
             'css?sourceMap&-restructuring!' +
-            'autoprefixer-loader'
+            'postcss-loader'
           ),
         },
         {
           test: /\.less$/,
           loader: ExtractTextPlugin.extract(
             'css?sourceMap!' +
-            'autoprefixer-loader!' +
+            'postcss-loader!' +
             `less?{"sourceMap":true,"modifyVars":${JSON.stringify(pkg.theme || {})}}`
           ),
         },
@@ -92,6 +93,8 @@ export default function getWebpackCommonConfig(args) {
         { test: /\.json$/, loader: 'json' },
       ],
     },
+
+    postcss: [autoprefixer],
 
     plugins: [
       new webpack.optimize.CommonsChunkPlugin('common', commonName),
