@@ -42,7 +42,6 @@ function getWebpackConfig(args) {
     webpackConfig.plugins = [...webpackConfig.plugins,
       require('map-json-webpack-plugin')({
         assetsPath: pkg.name,
-        output: join(webpackConfig.output.path, 'map.json'),
       }),
     ];
   }
