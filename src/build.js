@@ -37,9 +37,12 @@ function getWebpackConfig(args) {
 
   // Output map.json if hash.
   if (args.hash) {
+    const pkg = require(join(args.cwd, 'package.json'));
     webpackConfig.output.filename = webpackConfig.output.chunkFilename = '[name]-[chunkhash].js';
     webpackConfig.plugins = [...webpackConfig.plugins,
-      require('map-json-webpack-plugin')(),
+      require('map-json-webpack-plugin')({
+        assetsPath: pkg.name,
+      }),
     ];
   }
 
