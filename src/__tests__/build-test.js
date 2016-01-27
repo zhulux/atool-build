@@ -1,15 +1,13 @@
 import 'jest.automockoff';
 import { join } from 'path';
-import { readdirSync, readFileSync } from 'fs';
+import { readFileSync } from 'fs';
+import glob from 'glob';
 import build from '../build';
 import assign from 'object-assign';
 
 function assert(actualDir, _expect) {
   const expectDir = join(__dirname, 'expect', _expect);
-  const actualFiles = readdirSync(actualDir);
-  const expectFiles = readdirSync(expectDir);
-
-  expect(actualFiles.length).toEqual(expectFiles.length);
+  const actualFiles = glob.sync('**/*', { cwd: actualDir, nodir: true });
 
   actualFiles.forEach(file => {
     const actualFile = readFileSync(join(actualDir, file), 'utf-8');
@@ -77,5 +75,8 @@ describe('lib/build', () => {
   });
   pit('should support dedupe', () => {
     return testBuild({}, 'build-dedupePlugin-enabled');
+  });
+  pit('should support hash map', () => {
+    return testBuild({hash:true}, 'build-hash-map');
   });
 });
