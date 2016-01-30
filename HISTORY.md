@@ -2,6 +2,12 @@
 
 ---
 
+## 0.5.0
+
+采用 postcss-loader
+
+解决 map.json bug
+
 ## 0.4.3
 
 jsx 全部转换
