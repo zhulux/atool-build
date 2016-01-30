@@ -69,7 +69,7 @@ module.exports = function(webpackConfig) {
 
 
 
-详细内容：[ant-tool 基本使用](http://ant-tool.github.io/atool-build.html)
+详细内容：[atool-build 基本使用](http://ant-tool.github.io/atool-build.html)
 
 
 ## FAQ
