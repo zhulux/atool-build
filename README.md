@@ -4,6 +4,7 @@
 [![Build Status](https://img.shields.io/travis/ant-tool/atool-build.svg?style=flat)](https://travis-ci.org/ant-tool/atool-build)
 [![Coverage Status](https://img.shields.io/coveralls/ant-tool/atool-build.svg?style=flat)](https://coveralls.io/r/ant-tool/atool-build)
 [![NPM downloads](http://img.shields.io/npm/dm/atool-build.svg?style=flat)](https://npmjs.org/package/atool-build)
+[![Dependency Status](https://david-dm.org/ant-tool/atool-build.svg)](https://david-dm.org/ant-tool/atool-build)
 
 基于 webpack 的构建封装.
 
