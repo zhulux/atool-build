@@ -37,7 +37,7 @@
     "extract-text-webpack-plugin": "~1.0.1",
     "file-loader": "~0.8.4",
     "json-loader": "~0.5.4",
-    "less": "~2.5.3",
+    "less": "~2.6.0",
     "less-loader": "~2.2.0",
     "map-json-webpack-plugin": "~1.1.0",
     "postcss-loader": "~0.8.0",
