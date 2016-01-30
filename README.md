@@ -68,6 +68,10 @@ module.exports = function(webpackConfig) {
 - `webpackConfig` -- 默认配置, 修改后返回新的配置
 
 
+
+详细内容：[ant-tool 基本使用](http://ant-tool.github.io/atool-build.html)
+
+
 ## FAQ
 
 > 如何在 webpack.config.js 中引用 webpack ? (新增插件需要) 
@@ -75,4 +79,3 @@ module.exports = function(webpackConfig) {
 `var webpack = require('atool-build/lib/webpack');`
 
 [#32](https://github.com/ant-tool/atool-build/issues/32)
-
