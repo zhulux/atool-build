@@ -70,16 +70,31 @@ export default function getWebpackCommonConfig(args) {
           query: babelQuery,
         },
         {
-          test: /\.css$/,
+          test: /[^(module)]\.css$/,
           loader: ExtractTextPlugin.extract(
             'css?sourceMap&-restructuring!' +
             'postcss-loader'
           ),
         },
         {
-          test: /\.less$/,
+          test: /\.module\.css$/,
+          loader: ExtractTextPlugin.extract(
+            'css?sourceMap&-restructuring&modules&localIdentName=[local]___[hash:base64:5]!' +
+            'postcss-loader'
+          ),
+        },
+        {
+          test: /[^(module)]\.less$/,
           loader: ExtractTextPlugin.extract(
             'css?sourceMap!' +
+            'postcss-loader!' +
+            `less?{"sourceMap":true,"modifyVars":${JSON.stringify(pkg.theme || {})}}`
+          ),
+        },
+        {
+          test: /\.module\.less$/,
+          loader: ExtractTextPlugin.extract(
+            'css?sourceMap&localIdentName=[local]___[hash:base64:5]!!' +
             'postcss-loader!' +
             `less?{"sourceMap":true,"modifyVars":${JSON.stringify(pkg.theme || {})}}`
           ),
