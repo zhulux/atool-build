@@ -94,7 +94,7 @@ export default function getWebpackCommonConfig(args) {
         {
           test: /\.module\.less$/,
           loader: ExtractTextPlugin.extract(
-            'css?sourceMap&localIdentName=[local]___[hash:base64:5]!!' +
+            'css?sourceMap&modules&localIdentName=[local]___[hash:base64:5]!!' +
             'postcss-loader!' +
             `less?{"sourceMap":true,"modifyVars":${JSON.stringify(pkg.theme || {})}}`
           ),
