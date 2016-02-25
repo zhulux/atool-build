@@ -23,7 +23,7 @@ function getWebpackConfig(args) {
         },
         compress: {
           warnings: false,
-          ure_getters: true,
+          pure_getters: true,
           unsafe: true,
           screw_ie8: true,
           comparisons: true,
