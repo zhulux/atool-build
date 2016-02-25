@@ -25,6 +25,7 @@ webpackJsonp([1,0],[
 
 	A.propTypes = 1;
 
+
 	var a = new A();
 	a.foo();
 

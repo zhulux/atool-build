@@ -68,7 +68,6 @@ module.exports = function(webpackConfig) {
 - `webpackConfig` -- 默认配置, 修改后返回新的配置
 
 
-
 详细内容：[atool-build 基本使用](http://ant-tool.github.io/atool-build.html)
 
 
