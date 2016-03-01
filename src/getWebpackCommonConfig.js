@@ -106,6 +106,7 @@ export default function getWebpackCommonConfig(args) {
         { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&minetype=image/svg+xml' },
         { test: /\.(png|jpg|jpeg|gif)(\?v=\d+\.\d+\.\d+)?$/i, loader: 'url?limit=10000' },
         { test: /\.json$/, loader: 'json' },
+        { test: /\.html?$/, loader: 'file?name=[name].[ext]'},
       ],
     },
 
