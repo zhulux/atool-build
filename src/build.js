@@ -1,6 +1,7 @@
 import { join } from 'path';
 import rimraf from 'rimraf';
-import webpack from 'webpack';
+import webpack, { ProgressPlugin } from 'webpack';
+import chalk from 'chalk';
 import mergeCustomConfig from './mergeCustomConfig';
 import getWebpackCommonConfig from './getWebpackCommonConfig';
 
@@ -60,6 +61,21 @@ export default function(args, callback) {
   // Clean output dir first.
   rimraf.sync(webpackConfig.output.path);
 
+  if (args.watch) {
+    webpackConfig.plugins.push(
+      new ProgressPlugin((percentage, msg) => {
+        const stream = process.stderr;
+        if (stream.isTTY && percentage < 0.71) {
+          stream.cursorTo(0);
+          stream.write('📦  ' + chalk.magenta(msg));
+          stream.clearLine(1);
+        } else if (percentage === 1) {
+          console.log(chalk.green('\nwebpack: bundle build is now finished.'));
+        }
+      })
+    );
+  }
+
   function doneHandler(err, stats) {
     const { errors } = stats.toJson();
     if (errors && errors.length) {
@@ -68,7 +84,9 @@ export default function(args, callback) {
       });
     }
 
-    console.log(stats.toString({ colors: true }));
+    if (!args.watch || stats.hasErrors()) {
+      console.log(stats.toString({colors: true}));
+    }
 
     if (err) {
       process.on('exit', function exitHandler() {
@@ -76,6 +94,7 @@ export default function(args, callback) {
       });
       console.error(err);
     }
+
     if (callback) {
       callback(err);
     }
