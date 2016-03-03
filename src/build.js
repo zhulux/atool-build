@@ -16,15 +16,16 @@ function getWebpackConfig(args) {
 
   // Config if no --no-compress.
   if (args.compress) {
+    webpackConfig.UglifyJsPluginConfig = {
+      output: {
+        ascii_only: true,
+      },
+      compress: {
+        warnings: false,
+      },
+    };
     webpackConfig.plugins = [...webpackConfig.plugins,
-      new webpack.optimize.UglifyJsPlugin({
-        output: {
-          ascii_only: true,
-        },
-        compress: {
-          warnings: false,
-        },
-      }),
+      new webpack.optimize.UglifyJsPlugin(webpackConfig.UglifyJsPluginConfig),
     ];
   }
 

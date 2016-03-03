@@ -35,6 +35,8 @@ export default function getWebpackCommonConfig(args) {
 
   return {
 
+    babel: babelQuery,
+
     output: {
       path: join(process.cwd(), './dist/'),
       filename: jsFileName,
