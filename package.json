@@ -23,7 +23,6 @@
     "lint"
   ],
   "dependencies": {
-    "autoprefixer": "~6.3.1",
     "babel-core": "6.6.x",
     "babel-core-resolve-enhance": "~0.1.2",
     "babel-loader": "~6.2.0",
@@ -43,7 +42,8 @@
     "postcss-loader": "~0.8.0",
     "rimraf": "~2.5.0",
     "url-loader": "~0.5.6",
-    "webpack": "~1.12.2"
+    "webpack": "~1.12.2",
+    "rucksack-css": "~0.8.5"
   },
   "devDependencies": {
     "babel-cli": "6.6.x",
@@ -53,8 +53,8 @@
     "eslint": "~1.10.3",
     "eslint-config-airbnb": "~3.1.0",
     "glob": "~6.0.4",
-    "expect": "^1.13.4",
-    "mocha": "^2.3.4",
+    "expect": "~1.13.4",
+    "mocha": "~2.3.4",
     "pre-commit": "~1.1.2"
   },
   "babel": {
