@@ -87,4 +87,7 @@ describe('lib/build', () => {
   it('should support decorator', () => {
     return testBuild({}, 'build-decorator');
   });
+  it('should support es3', () => {
+    return testBuild({}, 'build-es3');
+  });
 });
