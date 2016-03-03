@@ -3,7 +3,6 @@ import { join } from 'path';
 import { readFileSync } from 'fs';
 import glob from 'glob';
 import build from '../build';
-import assign from 'object-assign';
 
 function assert(actualDir, _expect) {
   const expectDir = join(__dirname, 'expect', _expect);
@@ -27,7 +26,7 @@ function testBuild(args, fixture) {
       compress: false,
     };
 
-    build(assign({}, defaultConfig, args), err => {
+    build({...defaultConfig, ...args}, err => {
       if (err) throw new Error(err);
       assert(outputPath, fixture);
       resolve();
