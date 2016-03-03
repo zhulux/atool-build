@@ -81,4 +81,7 @@ describe('lib/build', () => {
   it('should support hash map', () => {
     return testBuild({hash:true}, 'build-hash-map');
   });
+  it('should support i18n', () => {
+    return testBuild({}, 'build-i18n');
+  });
 });
