@@ -44,6 +44,9 @@ describe('lib/build', () => {
   it('should support less', () => {
     return testBuild({}, 'build-less');
   });
+  it('should support css modules', () => {
+    return testBuild({}, 'build-css-modules');
+  });
   it('should support add-module-exports', () => {
     return testBuild({}, 'build-add-module-exports');
   });
