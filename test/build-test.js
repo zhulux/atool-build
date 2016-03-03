@@ -84,4 +84,7 @@ describe('lib/build', () => {
   it('should support i18n', () => {
     return testBuild({}, 'build-i18n');
   });
+  it('should support decorator', () => {
+    return testBuild({}, 'build-decorator');
+  });
 });
