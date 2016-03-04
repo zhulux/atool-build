@@ -1,8 +1,8 @@
-import 'jest.automockoff';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 import glob from 'glob';
-import build from '../build';
+import build from '../src/build';
+import expect from 'expect';
 
 function assert(actualDir, _expect) {
   const expectDir = join(__dirname, 'expect', _expect);
@@ -35,47 +35,59 @@ function testBuild(args, fixture) {
 }
 
 describe('lib/build', () => {
-  pit('should build normally', () => {
+  it('should build normally', () => {
     return testBuild({hash:true}, 'build-normal');
   });
-  pit('should support class property', () => {
+  it('should support class property', () => {
     return testBuild({}, 'build-class-property');
   });
-  pit('should support less', () => {
+  it('should support less', () => {
     return testBuild({}, 'build-less');
   });
-  pit('should support add-module-exports', () => {
+  it('should support css modules', () => {
+    return testBuild({}, 'build-css-modules');
+  });
+  it('should support add-module-exports', () => {
     return testBuild({}, 'build-add-module-exports');
   });
-  pit('should support jsx', () => {
+  it('should support jsx', () => {
     return testBuild({}, 'build-jsx');
   });
-  pit('should support json', () => {
+  it('should support json', () => {
     return testBuild({}, 'build-json');
   });
-  pit('should support node builtins', () => {
+  it('should support node builtins', () => {
     return testBuild({}, 'build-node-builtins');
   });
-  pit('should support mergeCustomConfig plugins', () => {
+  it('should support mergeCustomConfig plugins', () => {
     return testBuild({hash:true}, 'build-mergeCustomConfig-plugins');
   });
-  pit('should support mergeCustomConfig environment productio', () => {
+  it('should support mergeCustomConfig environment productio', () => {
     return testBuild({}, 'build-mergeCustomConfig-environment-production');
   });
-  pit('should support mergeCustomConfig environment development', () => {
+  it('should support mergeCustomConfig environment development', () => {
     process.env.NODE_ENV = 'development';
     return testBuild({}, 'build-mergeCustomConfig-environment-development');
   });
-  pit('should support config', () => {
+  it('should support config', () => {
     return testBuild({config:'webpack.config.path.js'}, 'build-mergeCustomConfig-path');
   });
-  pit('should support typescript', () => {
+  it('should support typescript', () => {
     return testBuild({}, 'build-typescript');
   });
-  pit('should support dedupe', () => {
+  it('should support dedupe', () => {
     return testBuild({}, 'build-dedupePlugin-enabled');
   });
-  pit('should support hash map', () => {
+  it('should support hash map', () => {
     return testBuild({hash:true}, 'build-hash-map');
+  });
+  it('should support i18n', () => {
+    return testBuild({}, 'build-i18n');
+  });
+  it('should support decorator', () => {
+    return testBuild({}, 'build-decorator');
+  });
+  it('should support es3', () => {
+    return testBuild({}, 'build-es3');
   });
 });

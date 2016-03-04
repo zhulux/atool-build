@@ -1,6 +1,7 @@
 import { join } from 'path';
 import rimraf from 'rimraf';
-import webpack from 'webpack';
+import webpack, { ProgressPlugin } from 'webpack';
+import chalk from 'chalk';
 import mergeCustomConfig from './mergeCustomConfig';
 import getWebpackCommonConfig from './getWebpackCommonConfig';
 
@@ -16,15 +17,16 @@ function getWebpackConfig(args) {
 
   // Config if no --no-compress.
   if (args.compress) {
+    webpackConfig.UglifyJsPluginConfig = {
+      output: {
+        ascii_only: true,
+      },
+      compress: {
+        warnings: false,
+      },
+    };
     webpackConfig.plugins = [...webpackConfig.plugins,
-      new webpack.optimize.UglifyJsPlugin({
-        output: {
-          ascii_only: true,
-        },
-        compress: {
-          warnings: false,
-        },
-      }),
+      new webpack.optimize.UglifyJsPlugin(webpackConfig.UglifyJsPluginConfig),
     ];
   }
 
@@ -54,10 +56,30 @@ function getWebpackConfig(args) {
 
 export default function(args, callback) {
   // Get config.
-  const webpackConfig = getWebpackConfig(args);
+  let webpackConfig = getWebpackConfig(args);
+  webpackConfig = Array.isArray(webpackConfig) ? webpackConfig : [webpackConfig];
 
   // Clean output dir first.
-  rimraf.sync(webpackConfig.output.path);
+  webpackConfig.forEach(config => {
+    rimraf.sync(config.output.path);
+  });
+
+  if (args.watch) {
+    webpackConfig.forEach(config => {
+      config.plugins.push(
+        new ProgressPlugin((percentage, msg) => {
+          const stream = process.stderr;
+          if (stream.isTTY && percentage < 0.71) {
+            stream.cursorTo(0);
+            stream.write('📦  ' + chalk.magenta(msg));
+            stream.clearLine(1);
+          } else if (percentage === 1) {
+            console.log(chalk.green('\nwebpack: bundle build is now finished.'));
+          }
+        })
+      );
+    });
+  }
 
   function doneHandler(err, stats) {
     const { errors } = stats.toJson();
@@ -67,7 +89,9 @@ export default function(args, callback) {
       });
     }
 
-    console.log(stats.toString({ colors: true }));
+    if (!args.watch || stats.hasErrors()) {
+      console.log(stats.toString({colors: true}));
+    }
 
     if (err) {
       process.on('exit', function exitHandler() {
@@ -75,6 +99,7 @@ export default function(args, callback) {
       });
       console.error(err);
     }
+
     if (callback) {
       callback(err);
     }

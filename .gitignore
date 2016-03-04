@@ -2,6 +2,6 @@
 .DS_Store
 tmp
 node_modules/*
-src/__tests__/fixtures/**/dist
+test/fixtures/**/dist
 coverage
 lib

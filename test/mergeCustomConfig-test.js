@@ -1,6 +1,6 @@
-import 'jest.automockoff';
 import { join } from 'path';
-import mergeCustomConfig from '../mergeCustomConfig';
+import mergeCustomConfig from '../src/mergeCustomConfig';
+import expect from 'expect';
 
 describe('lib/mergeCustomConfig', () => {
 

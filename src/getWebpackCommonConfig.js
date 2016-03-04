@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import getBabelCommonConfig from './getBabelCommonConfig';
 import { join } from 'path';
-import autoprefixer from 'autoprefixer';
+import rucksack from 'rucksack-css';
 
 try {
   require('babel-core-resolve-enhance')({
@@ -34,6 +34,8 @@ export default function getWebpackCommonConfig(args) {
 
 
   return {
+
+    babel: babelQuery,
 
     output: {
       path: join(process.cwd(), './dist/'),
@@ -80,14 +82,14 @@ export default function getWebpackCommonConfig(args) {
           test: /\.module\.css$/,
           loader: ExtractTextPlugin.extract(
             'css?sourceMap&-restructuring&modules&localIdentName=[local]___[hash:base64:5]!' +
-            'postcss-loader'
+            'postcss'
           ),
         },
         {
           test: /[^(module)]\.less$/,
           loader: ExtractTextPlugin.extract(
             'css?sourceMap!' +
-            'postcss-loader!' +
+            'postcss!' +
             `less?{"sourceMap":true,"modifyVars":${JSON.stringify(pkg.theme || {})}}`
           ),
         },
@@ -95,7 +97,7 @@ export default function getWebpackCommonConfig(args) {
           test: /\.module\.less$/,
           loader: ExtractTextPlugin.extract(
             'css?sourceMap&modules&localIdentName=[local]___[hash:base64:5]!!' +
-            'postcss-loader!' +
+            'postcss!' +
             `less?{"sourceMap":true,"modifyVars":${JSON.stringify(pkg.theme || {})}}`
           ),
         },
@@ -110,7 +112,11 @@ export default function getWebpackCommonConfig(args) {
       ],
     },
 
-    postcss: [autoprefixer],
+    postcss: [
+      rucksack({
+        autoprefixer: true,
+      })
+    ],
 
     plugins: [
       new webpack.optimize.CommonsChunkPlugin('common', commonName),
