@@ -2,6 +2,18 @@
 
 ---
 
+## 0.6.0
+
+- 构建日志不输出 uglifyjs 的 warning 信息，#50
+- 修改 babel 和 UglifyJsPluginConfig 配置更简单，直接通过 `webpackConfig.babel` 调用，#58
+- js 里 require 的 html 文件会被复制到输出目录，#53
+- 通过匹配 `*.module.css` 支持 `css-modules`，一种更好的 css 组织方式
+- 添加 NoErrorsPlugin 插件，构建出错时不生成文件
+- 支持 rucksack，详见 http://simplaio.github.io/rucksack/
+- 支持 webpackConfig 处理了 i18n 后是数组的场景，#98
+- watch 模式下精简日志信息，#86
+- 支持 decorator，#65
+
 ## 0.5.0
 
 采用 postcss-loader
