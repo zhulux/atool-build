@@ -72,10 +72,12 @@ export default function getWebpackCommonConfig(args) {
           query: babelQuery,
         },
         {
-          test: /[^(module)]\.css$/,
+          test: function(filePath) {
+            return /\.css$/.test(filePath) && !/\.module\.css$/.test(filePath);
+          },
           loader: ExtractTextPlugin.extract(
             'css?sourceMap&-restructuring!' +
-            'postcss-loader'
+            'postcss'
           ),
         },
         {
@@ -86,7 +88,9 @@ export default function getWebpackCommonConfig(args) {
           ),
         },
         {
-          test: /[^(module)]\.less$/,
+          test: function(filePath) {
+            return /\.less$/.test(filePath) && !/\.module\.less$/.test(filePath);
+          },
           loader: ExtractTextPlugin.extract(
             'css?sourceMap!' +
             'postcss!' +
