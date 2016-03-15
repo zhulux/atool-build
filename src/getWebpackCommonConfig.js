@@ -72,7 +72,7 @@ export default function getWebpackCommonConfig(args) {
           query: babelQuery,
         },
         {
-          test: function(filePath) {
+          test(filePath) {
             return /\.css$/.test(filePath) && !/\.module\.css$/.test(filePath);
           },
           loader: ExtractTextPlugin.extract(
@@ -88,7 +88,7 @@ export default function getWebpackCommonConfig(args) {
           ),
         },
         {
-          test: function(filePath) {
+          test(filePath) {
             return /\.less$/.test(filePath) && !/\.module\.less$/.test(filePath);
           },
           loader: ExtractTextPlugin.extract(
@@ -112,14 +112,14 @@ export default function getWebpackCommonConfig(args) {
         { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&minetype=image/svg+xml' },
         { test: /\.(png|jpg|jpeg|gif)(\?v=\d+\.\d+\.\d+)?$/i, loader: 'url?limit=10000' },
         { test: /\.json$/, loader: 'json' },
-        { test: /\.html?$/, loader: 'file?name=[name].[ext]'},
+        { test: /\.html?$/, loader: 'file?name=[name].[ext]' },
       ],
     },
 
     postcss: [
       rucksack({
         autoprefixer: true,
-      })
+      }),
     ],
 
     plugins: [
