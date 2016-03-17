@@ -24,7 +24,6 @@
   ],
   "dependencies": {
     "babel-core": "6.6.x",
-    "babel-core-resolve-enhance": "~0.1.2",
     "babel-loader": "~6.2.0",
     "babel-plugin-add-module-exports": "~0.1.2",
     "babel-plugin-typecheck": "~3.5.1",

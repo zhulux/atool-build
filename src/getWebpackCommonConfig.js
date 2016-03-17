@@ -4,14 +4,6 @@ import getBabelCommonConfig from './getBabelCommonConfig';
 import { join } from 'path';
 import rucksack from 'rucksack-css';
 
-try {
-  require('babel-core-resolve-enhance')({
-    dirname: __dirname,
-  });
-} catch (e) {
-  console.error(`[Error] ${e.message}`);
-}
-
 export default function getWebpackCommonConfig(args) {
   const pkg = require(join(args.cwd, 'package.json'));
 
