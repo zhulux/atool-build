@@ -13,7 +13,18 @@ export default function getWebpackCommonConfig(args) {
 
   const babelQuery = getBabelCommonConfig();
 
-  const emptyBuildins = ['child_process', 'cluster', 'dgram', 'dns', 'fs', 'module', 'net', 'readline', 'repl', 'tls'];
+  const emptyBuildins = [
+    'child_process',
+    'cluster',
+    'dgram',
+    'dns',
+    'fs',
+    'module',
+    'net',
+    'readline',
+    'repl',
+    'tls',
+  ];
 
   const browser = pkg.browser || {};
 
