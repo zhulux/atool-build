@@ -90,7 +90,15 @@ export default function(args, callback) {
     }
 
     if (!args.watch || stats.hasErrors()) {
-      console.log(stats.toString({colors: true}));
+      console.log(stats.toString({
+        colors: true,
+        children: true,
+        chunks: !!args.verbose,
+        modules: !!args.verbose,
+        chunkModules: !!args.verbose,
+        hash: !!args.verbose,
+        version: !!args.verbose,
+      }));
     }
 
     if (err) {
