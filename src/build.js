@@ -117,7 +117,7 @@ export default function(args, callback) {
   const compiler = webpack(webpackConfig);
 
   // Hack: remove extract-text-webpack-plugin log
-  compiler.plugin('done', (stats) => {
+  args.verbose || compiler.plugin('done', (stats) => {// eslint-disable-line
     stats.stats.forEach((stat) => {
       stat.compilation.children = stat.compilation.children.filter((child) => {// eslint-disable-line
         return child.name !== 'extract-text-webpack-plugin';
