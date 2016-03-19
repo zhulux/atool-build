@@ -115,6 +115,18 @@ export default function(args, callback) {
 
   // Run compiler.
   const compiler = webpack(webpackConfig);
+
+  // Hack: remove extract-text-webpack-plugin log
+  if (!args.verbose) {
+    compiler.plugin('done', (stats) => {
+      stats.stats.forEach((stat) => {
+        stat.compilation.children = stat.compilation.children.filter((child) => {// eslint-disable-line
+          return child.name !== 'extract-text-webpack-plugin';
+        });
+      });
+    });
+  }
+
   if (args.watch) {
     compiler.watch(args.watch || 200, doneHandler);
   } else {
