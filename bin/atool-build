@@ -7,7 +7,7 @@ program
   .option('-o, --output-path <path>', 'output path')
   .option('-w, --watch [delay]', 'watch file changes and rebuild')
   .option('--hash', 'build with hash and output map.json')
-  .option('--publishPath', 'publicPath for webpack')
+  .option('--publicPath', 'publicPath for webpack')
   .option('--devtool <devtool>', 'sourcemap generate method, default is null')
   .option('--config <path>', 'custom config path, default is webpack.config.js')
   .option('--no-compress','build without compress')
