@@ -44,6 +44,7 @@ $ atool-build -h
     -o, --output-path <path>  output path
     -w, --watch [delay]       watch file changes and rebuild
     --hash                    build with hash and output map.json
+    --publicPath <publicPath> webpack publicPath
     --devtool <devtool>       sourcemap generate method, default is null
     --config <path>           custom config path, default is webpack.config.js
     --no-compress             build without compress 

@@ -15,6 +15,10 @@ function getWebpackConfig(args) {
     webpackConfig.output.path = args.outputPath;
   }
 
+  if (args.publicPath) {
+    webpackConfig.output.publicPath = args.publicPath;
+  }
+
   // Config if no --no-compress.
   if (args.compress) {
     webpackConfig.UglifyJsPluginConfig = {

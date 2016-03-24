@@ -1,6 +1,6 @@
 {
   "name": "atool-build",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Build tool based on webpack",
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
     "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
     "debug": "./node_modules/.bin/mocha --require babel-core/register --require babel-polyfill --no-timeouts",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "lint": "eslint --ext .js src"
+    "lint": "eslint --ext .js src",
+    "pub":"npm run build && npm publish && rm -rf lib && git push origin"
   },
   "pre-commit": [
     "lint"
