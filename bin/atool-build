@@ -16,3 +16,4 @@ program
 
 program.cwd = process.cwd();
 require('../lib/build')(program);
+require('atool-monitor').emit();

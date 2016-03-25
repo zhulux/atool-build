@@ -24,6 +24,7 @@
     "lint"
   ],
   "dependencies": {
+    "atool-monitor": "0.x",
     "babel-core": "6.6.x",
     "babel-loader": "~6.2.0",
     "babel-plugin-add-module-exports": "~0.1.2",
