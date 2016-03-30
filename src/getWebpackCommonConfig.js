@@ -3,6 +3,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import getBabelCommonConfig from './getBabelCommonConfig';
 import { join } from 'path';
 import rucksack from 'rucksack-css';
+import autoprefixer from 'autoprefixer';
 
 export default function getWebpackCommonConfig(args) {
   const pkg = require(join(args.cwd, 'package.json'));
@@ -120,10 +121,9 @@ export default function getWebpackCommonConfig(args) {
     },
 
     postcss: [
-      rucksack({
-        autoprefixer: {
-          browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8'],
-        },
+      rucksack(),
+      autoprefixer({
+        browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8']
       }),
     ],
 
