@@ -98,7 +98,7 @@ export default function getWebpackCommonConfig(args) {
           loader: ExtractTextPlugin.extract(
             'css?sourceMap!' +
             'postcss!' +
-            `less?{"sourceMap":true,"modifyVars":${JSON.stringify(pkg.theme || {})}}`
+            `less-loader?{"sourceMap":true,"modifyVars":${JSON.stringify(pkg.theme || {})}}`
           ),
         },
         {
@@ -106,7 +106,7 @@ export default function getWebpackCommonConfig(args) {
           loader: ExtractTextPlugin.extract(
             'css?sourceMap&modules&localIdentName=[local]___[hash:base64:5]!!' +
             'postcss!' +
-            `less?{"sourceMap":true,"modifyVars":${JSON.stringify(pkg.theme || {})}}`
+            `less-loader?{"sourceMap":true,"modifyVars":${JSON.stringify(pkg.theme || {})}}`
           ),
         },
         { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&minetype=application/font-woff' },
