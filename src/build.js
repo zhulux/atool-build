@@ -31,13 +31,21 @@ function getWebpackConfig(args) {
     };
     webpackConfig.plugins = [...webpackConfig.plugins,
       new webpack.optimize.UglifyJsPlugin(webpackConfig.UglifyJsPluginConfig),
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
+      }),
     ];
+  } else {
+    if (process.env.NODE_ENV) {
+      webpackConfig.plugins = [...webpackConfig.plugins,
+        new webpack.DefinePlugin({
+          'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+        }),
+      ];
+    }
   }
 
   webpackConfig.plugins = [...webpackConfig.plugins,
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
-    }),
     new webpack.optimize.DedupePlugin(),
     new webpack.NoErrorsPlugin(),
   ];
