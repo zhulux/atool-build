@@ -1,6 +1,5 @@
 import { join } from 'path';
 import { writeFileSync } from 'fs';
-import rimraf from 'rimraf';
 import webpack, { ProgressPlugin } from 'webpack';
 import chalk from 'chalk';
 import mergeCustomConfig from './mergeCustomConfig';
@@ -73,10 +72,8 @@ export default function(args, callback) {
   webpackConfig = Array.isArray(webpackConfig) ? webpackConfig : [webpackConfig];
 
   let fileOutputPath;
-  // Clean output dir first.
   webpackConfig.forEach(config => {
     fileOutputPath = config.output.path;
-    rimraf.sync(fileOutputPath);
   });
 
   if (args.watch) {
