@@ -107,9 +107,10 @@ export default function(args, callback) {
         process.exit(1);
       });
     }
-
+    // if watch enabled only stats.hasErrors would log info
+    // otherwise  would always log info
     if (!args.watch || stats.hasErrors()) {
-      console.log(stats.toString({
+      const buildInfo = stats.toString({
         colors: true,
         children: true,
         chunks: !!args.verbose,
@@ -117,7 +118,8 @@ export default function(args, callback) {
         chunkModules: !!args.verbose,
         hash: !!args.verbose,
         version: !!args.verbose,
-      }));
+      });
+      stats.hasErrors() ? console.error(buildInfo) : console.log(buildInfo);
     }
 
     if (err) {
