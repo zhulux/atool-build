@@ -62,8 +62,8 @@ describe('lib/build', () => {
   it('should support mergeCustomConfig plugins', () => {
     return testBuild({hash:true}, 'build-mergeCustomConfig-plugins');
   });
-  it('should support mergeCustomConfig environment productio', () => {
-    return testBuild({}, 'build-mergeCustomConfig-environment-production');
+  it('should support mergeCustomConfig environment production', () => {
+    return testBuild({compress:true}, 'build-mergeCustomConfig-environment-production');
   });
   it('should support mergeCustomConfig environment development', () => {
     process.env.NODE_ENV = 'development';
