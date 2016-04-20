@@ -1,4 +1,5 @@
 import { join } from 'path';
+import { writeFileSync } from 'fs';
 import rimraf from 'rimraf';
 import webpack, { ProgressPlugin } from 'webpack';
 import chalk from 'chalk';
@@ -71,9 +72,11 @@ export default function(args, callback) {
   let webpackConfig = getWebpackConfig(args);
   webpackConfig = Array.isArray(webpackConfig) ? webpackConfig : [webpackConfig];
 
+  let fileOutputPath;
   // Clean output dir first.
   webpackConfig.forEach(config => {
-    rimraf.sync(config.output.path);
+    fileOutputPath = config.output.path;
+    rimraf.sync(fileOutputPath);
   });
 
   if (args.watch) {
@@ -94,9 +97,16 @@ export default function(args, callback) {
   }
 
   function doneHandler(err, stats) {
+    if (args.json) {
+      const filename = typeof args.json === 'boolean' ? 'build-bundle.json' : args.json;
+      const jsonPath = join(fileOutputPath, filename);
+      writeFileSync(jsonPath, JSON.stringify(stats.toJson()), 'utf-8');
+      console.log(`Generate Json File: ${jsonPath}`);
+    }
+
     const { errors } = stats.toJson();
     if (errors && errors.length) {
-      process.on('exit', function exitHandler() {
+      process.on('exit', () => {
         process.exit(1);
       });
     }
@@ -114,7 +124,7 @@ export default function(args, callback) {
     }
 
     if (err) {
-      process.on('exit', function exitHandler() {
+      process.on('exit', () => {
         process.exit(1);
       });
       console.error(err);
