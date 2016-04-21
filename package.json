@@ -43,6 +43,7 @@
     "less": "~2.6.0",
     "less-loader": "~2.2.0",
     "map-json-webpack-plugin": "~1.1.0",
+    "modify-babel-preset": "^2.0.2",
     "postcss-loader": "~0.8.0",
     "rucksack-css": "~0.8.5",
     "url-loader": "~0.5.6",
