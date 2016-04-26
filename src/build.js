@@ -66,7 +66,7 @@ function getWebpackConfig(args) {
   return webpackConfig;
 }
 
-export default function(args, callback) {
+export default function build(args, callback) {
   // Get config.
   let webpackConfig = getWebpackConfig(args);
   webpackConfig = Array.isArray(webpackConfig) ? webpackConfig : [webpackConfig];
@@ -83,7 +83,7 @@ export default function(args, callback) {
           const stream = process.stderr;
           if (stream.isTTY && percentage < 0.71) {
             stream.cursorTo(0);
-            stream.write('📦  ' + chalk.magenta(msg));
+            stream.write(`📦  ${chalk.magenta(msg)}`);
             stream.clearLine(1);
           } else if (percentage === 1) {
             console.log(chalk.green('\nwebpack: bundle build is now finished.'));
@@ -119,7 +119,11 @@ export default function(args, callback) {
         hash: !!args.verbose,
         version: !!args.verbose,
       });
-      stats.hasErrors() ? console.error(buildInfo) : console.log(buildInfo);
+      if (stats.hasErrors()) {
+        console.error(buildInfo);
+      } else {
+        console.log(buildInfo);
+      }
     }
 
     if (err) {

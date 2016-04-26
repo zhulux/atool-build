@@ -2,6 +2,10 @@
 
 ---
 
+## 0.7.0
+
+- add lib/transformLess
+
 ## 0.6.0
 
 - 构建日志不输出 uglifyjs 的 warning 信息，#50

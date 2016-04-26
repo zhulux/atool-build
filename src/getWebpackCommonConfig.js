@@ -123,7 +123,7 @@ export default function getWebpackCommonConfig(args) {
     postcss: [
       rucksack(),
       autoprefixer({
-        browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8']
+        browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8'],
       }),
     ],
 

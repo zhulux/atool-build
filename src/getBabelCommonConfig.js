@@ -1,4 +1,4 @@
-export default () => {
+export default function babel() {
   return {
     cacheDirectory: true,
     presets: [
@@ -12,4 +12,4 @@ export default () => {
       require.resolve('babel-plugin-transform-decorators-legacy'),
     ],
   };
-};
+}

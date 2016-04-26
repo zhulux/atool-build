@@ -11,7 +11,7 @@ export default function mergeCustomConfig(webpackConfig, customConfigPath) {
   }
 
   const customConfig = require(customConfigPath);
-
+  /* eslint prefer-rest-params:0 */
   if (typeof customConfig === 'function') {
     return customConfig(webpackConfig, ...[...arguments].slice(2));
   }
