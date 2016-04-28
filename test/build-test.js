@@ -72,9 +72,6 @@ describe('lib/build', () => {
   it('should support config', () => {
     return testBuild({config:'webpack.config.path.js'}, 'build-mergeCustomConfig-path');
   });
-  it('should support typescript', () => {
-    return testBuild({}, 'build-typescript');
-  });
   it('should support dedupe', () => {
     return testBuild({}, 'build-dedupePlugin-enabled');
   });
