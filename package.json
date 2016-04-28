@@ -12,6 +12,10 @@
   "bin": {
     "atool-build": "./bin/atool-build"
   },
+  "files": [
+    "bin",
+    "lib"
+  ],
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib --ignore __tests__",
     "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
