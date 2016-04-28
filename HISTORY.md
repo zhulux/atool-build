@@ -2,6 +2,11 @@
 
 ---
 
+## 0.7.1
+
+- fix class inherit problem in IE9 and IE10, #126, #148
+- remove typecheck plugin, #149
+
 ## 0.7.0
 
 - add lib/transformLess
