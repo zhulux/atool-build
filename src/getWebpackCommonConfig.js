@@ -1,12 +1,14 @@
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import getBabelCommonConfig from './getBabelCommonConfig';
+import { existsSync } from 'fs';
 import { join } from 'path';
 import rucksack from 'rucksack-css';
 import autoprefixer from 'autoprefixer';
 
 export default function getWebpackCommonConfig(args) {
-  const pkg = require(join(args.cwd, 'package.json'));
+  const pkgPath = join(args.cwd, 'package.json');
+  const pkg = existsSync(pkgPath) ? require(pkgPath) : {};
 
   const jsFileName = args.hash ? '[name]-[chunkhash].js' : '[name].js';
   const cssFileName = args.hash ? '[name]-[chunkhash].css' : '[name].css';
