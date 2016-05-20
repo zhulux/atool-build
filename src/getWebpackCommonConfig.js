@@ -53,7 +53,7 @@ export default function getWebpackCommonConfig(args) {
 
     resolve: {
       modulesDirectories: ['node_modules', join(__dirname, '../node_modules')],
-      extensions: ['', '.js', '.jsx'],
+      extensions: ['', '.js', '.jsx', '.web.js'],
     },
 
     resolveLoader: {
