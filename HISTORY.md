@@ -2,6 +2,18 @@
 
 ---
 
+## 0.7.4
+
+- fix: when build is done but process does not exit, Close #165
+
+## 0.7.3
+
+- support: .web.js
+
+## 0.7.2
+
+- fix: should check package.json before require it
+
 ## 0.7.1
 
 - fix class inherit problem in IE9 and IE10, #126, #148
