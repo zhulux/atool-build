@@ -5,6 +5,5 @@ export default function ts() {
     moduleResolution: 'node',
     declaration: true,
     sourceMap: true,
-    noExternalResolve: true,
   };
 }

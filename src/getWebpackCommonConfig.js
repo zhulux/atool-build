@@ -44,6 +44,7 @@ export default function getWebpackCommonConfig(args) {
   return {
 
     babel: babelQuery,
+    ts: tsQuery,
 
     output: {
       path: join(process.cwd(), './dist/'),
@@ -72,20 +73,14 @@ export default function getWebpackCommonConfig(args) {
           test: /\.js$/,
           exclude: /node_modules/,
           loader: 'babel',
-          query: babelQuery,
         },
         {
           test: /\.jsx$/,
           loader: 'babel',
-          query: babelQuery,
         },
         {
           test: /\.tsx?$/,
-          exclude: /node_modules/,
-          loaders: [
-            { loader: 'babel', query: babelQuery },
-            { loader: 'ts', query: tsQuery },
-          ],
+          loaders: ['babel', 'ts'],
         },
         {
           test(filePath) {

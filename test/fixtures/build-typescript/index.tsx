@@ -1,10 +1,9 @@
 class Greeter {
-  constructor(public greeting: string) { }
+  constructor(public greeting: string) {}
   greet() {
-      return "<h1>" + this.greeting + "</h1>";
+    return `<h1>${this.greeting}</h1>`;
   }
-};
+}
 
-const greeter = new Greeter("Hello, world!");
-    
+const greeter = new Greeter('Hello, world!');
 document.body.innerHTML = greeter.greet();
