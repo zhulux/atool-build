@@ -87,4 +87,7 @@ describe('lib/build', () => {
   it('should support es3', () => {
     return testBuild({}, 'build-es3');
   });
+  it('should support typescript', () => {
+    return testBuild({}, 'build-typescript');
+  });
 });
