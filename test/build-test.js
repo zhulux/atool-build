@@ -34,7 +34,8 @@ function testBuild(args, fixture) {
   });
 }
 
-describe('lib/build', () => {
+describe('lib/build', function () {
+  this.timeout(50000);
   it('should build normally', () => {
     return testBuild({hash:true}, 'build-normal');
   });
