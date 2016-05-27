@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import getBabelCommonConfig from './getBabelCommonConfig';
+import getTSCommonConfig from './getTSCommonConfig';
 import { existsSync } from 'fs';
 import { join } from 'path';
 import rucksack from 'rucksack-css';
@@ -15,6 +16,7 @@ export default function getWebpackCommonConfig(args) {
   const commonName = args.hash ? 'common-[chunkhash].js' : 'common.js';
 
   const babelQuery = getBabelCommonConfig();
+  const tsQuery = getTSCommonConfig();
 
   const emptyBuildins = [
     'child_process',
@@ -53,7 +55,7 @@ export default function getWebpackCommonConfig(args) {
 
     resolve: {
       modulesDirectories: ['node_modules', join(__dirname, '../node_modules')],
-      extensions: ['', '.js', '.jsx', '.web.js'],
+      extensions: ['', '.js', '.jsx', '.web.js', '.web.ts', '.web.tsx', '.ts', '.tsx'],
     },
 
     resolveLoader: {
@@ -76,6 +78,14 @@ export default function getWebpackCommonConfig(args) {
           test: /\.jsx$/,
           loader: 'babel',
           query: babelQuery,
+        },
+        {
+          test: /\.tsx?$/,
+          exclude: /node_modules/,
+          loaders: [
+            { loader: 'babel', query: babelQuery },
+            { loader: 'ts', query: tsQuery },
+          ],
         },
         {
           test(filePath) {
