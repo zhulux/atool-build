@@ -16,7 +16,13 @@ program
   .parse(process.argv);
 
 program.cwd = process.cwd();
-require('../lib/build')(program, function () {
-  process.exit(0);
-});
+
+if (program.watch) {
+  require('../lib/build')(program);
+} else {
+  require('../lib/build')(program, function () {
+    process.exit(0);
+  });
+}
+
 require('atool-monitor').emit();
