@@ -2,6 +2,11 @@
 
 ---
 
+## 0.7.5
+
+- support: typescript
+- fix: process exit when watch
+
 ## 0.7.4
 
 - fix: when build is done but process does not exit, Close #165
