@@ -4,6 +4,10 @@
 
 ## 0.7.5
 
+- compatibility: 0.7.4 before about babelQuery
+
+## 0.7.5
+
 - support: typescript
 - fix: process exit when watch
 
