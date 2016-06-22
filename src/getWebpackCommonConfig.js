@@ -17,7 +17,9 @@ export default function getWebpackCommonConfig(args) {
 
   const babelQuery = getBabelCommonConfig();
   const tsQuery = getTSCommonConfig();
+  delete tsQuery.noExternalResolve;
 
+  tsQuery.declaration = false;
   const emptyBuildins = [
     'child_process',
     'cluster',
@@ -44,7 +46,9 @@ export default function getWebpackCommonConfig(args) {
   return {
 
     babel: babelQuery,
-    ts: tsQuery,
+    ts: {
+      compilerOptions: tsQuery,
+    },
 
     output: {
       path: join(process.cwd(), './dist/'),
@@ -73,12 +77,10 @@ export default function getWebpackCommonConfig(args) {
           test: /\.js$/,
           exclude: /node_modules/,
           loader: 'babel',
-          query: babelQuery,
         },
         {
           test: /\.jsx$/,
           loader: 'babel',
-          query: babelQuery,
         },
         {
           test: /\.tsx?$/,
