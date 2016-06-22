@@ -3,7 +3,7 @@ export default function ts() {
     target: 'es6',
     jsx: 'preserve',
     moduleResolution: 'node',
-    declaration: true,
+    declaration: false,
     sourceMap: true,
   };
 }

@@ -17,7 +17,6 @@ export default function getWebpackCommonConfig(args) {
 
   const babelQuery = getBabelCommonConfig();
   const tsQuery = getTSCommonConfig();
-  delete tsQuery.noExternalResolve;
 
   tsQuery.declaration = false;
   const emptyBuildins = [
@@ -47,6 +46,7 @@ export default function getWebpackCommonConfig(args) {
 
     babel: babelQuery,
     ts: {
+      transpileOnly: true,
       compilerOptions: tsQuery,
     },
 
