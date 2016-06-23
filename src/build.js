@@ -1,4 +1,4 @@
-import { join } from 'path';
+import { join, resolve } from 'path';
 import { writeFileSync } from 'fs';
 import webpack, { ProgressPlugin } from 'webpack';
 import chalk from 'chalk';
@@ -61,7 +61,7 @@ function getWebpackConfig(args) {
     ];
   }
 
-  webpackConfig = mergeCustomConfig(webpackConfig, join(args.cwd, args.config || 'webpack.config.js'));
+  webpackConfig = mergeCustomConfig(webpackConfig, resolve(args.cwd, args.config || 'webpack.config.js'));
 
   return webpackConfig;
 }
