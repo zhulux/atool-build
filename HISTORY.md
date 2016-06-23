@@ -2,7 +2,12 @@
 
 ---
 
-## 0.7.5
+## 0.7.13
+
+- fix: args.config is absolute path
+- fix: test error
+
+## 0.7.6
 
 - compatibility: 0.7.4 before about babelQuery
 
