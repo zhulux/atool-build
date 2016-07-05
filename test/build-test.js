@@ -91,4 +91,7 @@ describe('lib/build', function () {
   it('should support typescript', () => {
     return testBuild({}, 'build-typescript');
   });
+  it('should support theme', () => {
+    return testBuild({}, 'build-theme');
+  });
 });

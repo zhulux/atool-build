@@ -3,7 +3,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import getBabelCommonConfig from './getBabelCommonConfig';
 import getTSCommonConfig from './getTSCommonConfig';
 import { existsSync } from 'fs';
-import { join } from 'path';
+import { join, resolve } from 'path';
 import rucksack from 'rucksack-css';
 import autoprefixer from 'autoprefixer';
 
@@ -17,8 +17,17 @@ export default function getWebpackCommonConfig(args) {
 
   const babelQuery = getBabelCommonConfig();
   const tsQuery = getTSCommonConfig();
-
   tsQuery.declaration = false;
+
+  let theme = {};
+  if (pkg.theme && typeof(pkg.theme) === 'string' && existsSync(pkg.theme)) {
+    const cfgPath = resolve(pkg.theme);
+    const getThemeConfig = require(cfgPath);
+    theme = getThemeConfig();
+  } else if (pkg.theme && typeof(pkg.theme) === 'object') {
+    theme = pkg.theme;
+  }
+
   const emptyBuildins = [
     'child_process',
     'cluster',
@@ -111,7 +120,7 @@ export default function getWebpackCommonConfig(args) {
           loader: ExtractTextPlugin.extract(
             'css?sourceMap!' +
             'postcss!' +
-            `less-loader?{"sourceMap":true,"modifyVars":${JSON.stringify(pkg.theme || {})}}`
+            `less-loader?{"sourceMap":true,"modifyVars":${JSON.stringify(theme)}}`
           ),
         },
         {
@@ -119,7 +128,7 @@ export default function getWebpackCommonConfig(args) {
           loader: ExtractTextPlugin.extract(
             'css?sourceMap&modules&localIdentName=[local]___[hash:base64:5]!!' +
             'postcss!' +
-            `less-loader?{"sourceMap":true,"modifyVars":${JSON.stringify(pkg.theme || {})}}`
+            `less-loader?{"sourceMap":true,"modifyVars":${JSON.stringify(theme)}}`
           ),
         },
         { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&minetype=application/font-woff' },
