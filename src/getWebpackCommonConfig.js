@@ -20,8 +20,12 @@ export default function getWebpackCommonConfig(args) {
   tsQuery.declaration = false;
 
   let theme = {};
-  if (pkg.theme && typeof(pkg.theme) === 'string' && existsSync(pkg.theme)) {
-    const cfgPath = resolve(pkg.theme);
+  if (pkg.theme && typeof(pkg.theme) === 'string') {
+    let cfgPath = pkg.theme;
+    // relative path
+    if (cfgPath.charAt(0) === '.') {
+      cfgPath = resolve(process.cwd(), cfgPath);
+    }
     const getThemeConfig = require(cfgPath);
     theme = getThemeConfig();
   } else if (pkg.theme && typeof(pkg.theme) === 'object') {
