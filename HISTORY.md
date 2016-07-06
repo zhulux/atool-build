@@ -2,6 +2,11 @@
 
 ---
 
+## 0.7.14
+
+- add cacheDirectory, Close https://github.com/ant-design/antd-init/issues/78
+- support theme config, Close #176
+
 ## 0.7.13
 
 - fix: args.config is absolute path
