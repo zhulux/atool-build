@@ -2,6 +2,16 @@
 
 ---
 
+## 0.7.16
+
+- adding ".json" to the extensions under resolve
+- fix cwd
+- upgrade babel-* version
+
+## 0.7.15
+
+- enhancement theme
+
 ## 0.7.14
 
 - add cacheDirectory, Close https://github.com/ant-design/antd-init/issues/78
