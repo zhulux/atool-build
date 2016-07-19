@@ -8,7 +8,7 @@ import rucksack from 'rucksack-css';
 import autoprefixer from 'autoprefixer';
 
 export default function getWebpackCommonConfig(args) {
-  const pkgPath = join(process.cwd(), 'package.json');
+  const pkgPath = join(args.cwd, 'package.json');
   const pkg = existsSync(pkgPath) ? require(pkgPath) : {};
 
   const jsFileName = args.hash ? '[name]-[chunkhash].js' : '[name].js';
@@ -24,7 +24,7 @@ export default function getWebpackCommonConfig(args) {
     let cfgPath = pkg.theme;
     // relative path
     if (cfgPath.charAt(0) === '.') {
-      cfgPath = resolve(process.cwd(), cfgPath);
+      cfgPath = resolve(args.cwd, cfgPath);
     }
     const getThemeConfig = require(cfgPath);
     theme = getThemeConfig();

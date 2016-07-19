@@ -17,9 +17,9 @@
     "lib"
   ],
   "scripts": {
-    "build": "rm -rf lib && babel src --out-dir lib --ignore __tests__",
-    "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
-    "debug": "./node_modules/.bin/mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+    "build": "rm -rf lib && babel src --out-dir lib",
+    "test": "babel-node $(npm bin)/babel-istanbul cover $(npm bin)/_mocha -- --no-timeouts",
+    "debug": "$(npm bin)/mocha --require babel-core/register --no-timeouts",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "eslint --ext .js src",
     "pub": "npm run build && npm publish && rm -rf lib && git push origin"
@@ -55,10 +55,10 @@
     "webpack": "~1.12.2"
   },
   "devDependencies": {
-    "babel-cli": "6.6.x",
-    "babel-eslint": "^6.0.4",
+    "babel-cli": "^6.7.5",
+    "babel-core": "^6.7.6",
+    "babel-eslint": "^6.1.2",
     "babel-istanbul": "^0.7.0",
-    "babel-polyfill": "^6.7.4",
     "coveralls": "~2.11.4",
     "eslint": "^2.7.0",
     "eslint-config-airbnb": "^6.2.0",
