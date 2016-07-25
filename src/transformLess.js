@@ -4,6 +4,7 @@ import path, { dirname } from 'path';
 import postcss from 'postcss';
 import rucksack from 'rucksack-css';
 import autoprefixer from 'autoprefixer';
+import NpmImportPlugin from 'less-plugin-npm-import';
 
 function transformLess(lessFile, config = {}) {
   const { cwd = process.cwd() } = config;
@@ -17,6 +18,9 @@ function transformLess(lessFile, config = {}) {
     const lessOpts = {
       paths: [dirname(resolvedLessFile)],
       filename: resolvedLessFile,
+      plugins: [
+        new NpmImportPlugin({ prefix: '~' }),
+      ],
     };
     less.render(data, lessOpts)
       .then(result => {
