@@ -2,6 +2,10 @@
 
 ---
 
+## 0.7.17
+
+- support import less by transformLess, Ref. [pr](https://github.com/ant-tool/atool-build/pull/188)
+
 ## 0.7.16
 
 - adding ".json" to the extensions under resolve
