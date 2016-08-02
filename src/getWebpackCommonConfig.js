@@ -85,6 +85,7 @@ export default function getWebpackCommonConfig(args) {
     node,
 
     module: {
+      noParse: [/moment.js/],
       loaders: [
         {
           test: /\.js$/,
