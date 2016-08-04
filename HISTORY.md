@@ -2,6 +2,10 @@
 
 ---
 
+## 0.8.0
+
+- enhance autoprefix for mobile. Ref. #190
+
 ## 0.7.17
 
 - support import less by transformLess, Ref. [pr](https://github.com/ant-tool/atool-build/pull/188)
