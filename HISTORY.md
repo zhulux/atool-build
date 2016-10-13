@@ -2,6 +2,10 @@
 
 ---
 
+## 0.9.0
+
+- upgrade typescript to 2. Ref. #221
+
 ## 0.8.1
 
 - fix: css minimize bug with postcss plugin autoprefix and postcss-loader not found. Ref. #212
