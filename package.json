@@ -1,6 +1,6 @@
 {
   "name": "lutool-build",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Build tool based on webpack",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   ],
   "license": "MIT",
   "bin": {
-    "atool-build": "./bin/atool-build"
+    "lutool-build": "./bin/lutool-build"
   },
   "files": [
     "bin",
