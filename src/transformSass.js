@@ -10,14 +10,14 @@ function transformSass(sassFile, config = {}) {
 
   const plugins = [
     autoprefixer({
-      browsers : ['last 2 versions', 'ie > 10', 'iOS > 9', 'Android >= 5'],
+      browsers: ['last 2 versions', 'ie > 10', 'iOS > 9', 'Android >= 5'],
     }),
   ];
   const postcssOpts = {};
 
   const css = sass.renderSync({
-    file     : resolvedSassFile,
-    importer : packageImporter
+    file: resolvedSassFile,
+    importer: packageImporter,
   }).css.toString('utf-8');
 
   return new Promise((resolve, reject) => {
@@ -29,7 +29,7 @@ function transformSass(sassFile, config = {}) {
       .catch(err => {
         reject(err);
       });
-});
+  });
 }
 
 export default transformSass;

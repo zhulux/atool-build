@@ -1,6 +1,7 @@
 # lutool-build
+[![Code Climate](https://codeclimate.com/github/zhulux/lutool-build/badges/gpa.svg)](https://codeclimate.com/github/zhulux/lutool-build) [![CircleCI branch](https://img.shields.io/circleci/project/github/zhulux/lutool-build/release.svg)]() [![npm](https://img.shields.io/npm/v/lutool-build.svg)]() [![license](https://img.shields.io/github/license/zhulux/lutool-build.svg)]()
 
-基于 webpack 的构建封装， 在 atool-build 的基础上基础了SASS.
+基于 webpack 的构建封装， 在 atool-build 的基础上使用 Sass 替代了 LESS.
 
 ----
 
@@ -8,7 +9,7 @@
 
 - 基于 webpack 实现
 - 支持通过 `webpack.config.js` 进行扩展 webpack 的配置项
-- 支持 [stage-0](https://babeljs.io/docs/plugins/preset-stage-0), [es2015](https://babeljs.io/docs/plugins/preset-es2015), react 和 less
+- 支持 [stage-0](https://babeljs.io/docs/plugins/preset-stage-0), [es2015](https://babeljs.io/docs/plugins/preset-es2015), react 和 Sass
 - 支持 hash 模式的构建, 并生成映射表 `map.json`  
 - 支持 typescript
 
@@ -64,7 +65,7 @@ module.exports = function(webpackConfig) {
 - `webpackConfig` -- 默认配置, 修改后返回新的配置
 
 
-详细内容：[atool-build 基本使用](http://ant-tool.github.io/atool-build.html)
+参考[atool-build 基本使用](http://ant-tool.github.io/atool-build.html)
 
 
 ## FAQ
@@ -73,4 +74,4 @@ module.exports = function(webpackConfig) {
 
 `var webpack = require('lutool-build/lib/webpack');`
 
-[#32](https://github.com/ant-tool/atool-build/issues/32)
+参考[#32](https://github.com/ant-tool/atool-build/issues/32)
