@@ -1,3 +1,2 @@
-
-import style from './index.module.less';
+import style from './index.module.scss';
 console.log(style.index);

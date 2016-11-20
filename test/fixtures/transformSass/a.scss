@@ -1,0 +1,13 @@
+@import "~bourbon/app/assets/stylesheets/_bourbon.scss";
+@import "./b.scss";
+
+$green: '#ccc';
+
+.a {
+  @include clearfix;
+  // less variable
+  color: $green;
+
+  // autoprefixer
+  transform: translateX(1);
+}

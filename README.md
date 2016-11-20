@@ -1,12 +1,6 @@
-# atool-build
+# lutool-build
 
-[![NPM version](https://img.shields.io/npm/v/atool-build.svg?style=flat)](https://npmjs.org/package/atool-build)
-[![Build Status](https://img.shields.io/travis/ant-tool/atool-build.svg?style=flat)](https://travis-ci.org/ant-tool/atool-build)
-[![Coverage Status](https://img.shields.io/coveralls/ant-tool/atool-build.svg?style=flat)](https://coveralls.io/r/ant-tool/atool-build)
-[![NPM downloads](http://img.shields.io/npm/dm/atool-build.svg?style=flat)](https://npmjs.org/package/atool-build)
-[![Dependency Status](https://david-dm.org/ant-tool/atool-build.svg)](https://david-dm.org/ant-tool/atool-build)
-
-基于 webpack 的构建封装.
+基于 webpack 的构建封装， 在 atool-build 的基础上基础了SASS.
 
 ----
 
@@ -21,21 +15,21 @@
 ## 安装
 
 ```bash
-$ npm i atool-build --save
+$ npm i lutool-build --save
 ```
 
 ## 使用
 
 ```bash
-$ atool-build [options]
+$ lutool-build [options]
 ```
 
 ### 命令行参数
 
 ```bash
-$ atool-build -h
+$ lutool-build -h
   
-  Usage: atool-build [options]
+  Usage: lutool-build [options]
   
   Options:
   
@@ -77,6 +71,6 @@ module.exports = function(webpackConfig) {
 
 > 如何在 webpack.config.js 中引用 webpack ? (新增插件需要) 
 
-`var webpack = require('atool-build/lib/webpack');`
+`var webpack = require('lutool-build/lib/webpack');`
 
 [#32](https://github.com/ant-tool/atool-build/issues/32)

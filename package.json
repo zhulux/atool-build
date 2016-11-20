@@ -1,13 +1,16 @@
 {
-  "name": "atool-build",
-  "version": "0.9.0",
+  "name": "lutool-build",
+  "version": "0.1.0",
   "description": "Build tool based on webpack",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-tool/atool-build"
+    "url": "https://github.com/zhulux/lutool-build"
   },
-  "homepage": "https://github.com/ant-tool/atool-build",
-  "author": "chencheng <sorrycc@gmail.com>",
+  "homepage": "https://github.com/zhulux/lutool-build",
+  "authors": [
+    "ZhuluX",
+    "chencheng <sorrycc@gmail.com>"
+  ],
   "license": "MIT",
   "bin": {
     "atool-build": "./bin/atool-build"
@@ -21,7 +24,7 @@
     "test": "babel-node $(npm bin)/babel-istanbul cover $(npm bin)/_mocha -- --no-timeouts",
     "debug": "$(npm bin)/mocha --require babel-core/register --no-timeouts",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "lint": "eslint --ext .js src",
+    "lint": "eslint --fix --ext .js src",
     "pub": "npm run build && npm publish && rm -rf lib && git push origin"
   },
   "pre-commit": [
@@ -29,7 +32,7 @@
   ],
   "dependencies": {
     "atool-monitor": "0.x",
-    "autoprefixer": "^6.3.6",
+    "autoprefixer": "^6.5.3",
     "babel-core": "^6.7.4",
     "babel-loader": "~6.2.0",
     "babel-plugin-add-module-exports": "~0.1.2",
@@ -39,27 +42,27 @@
     "babel-preset-stage-0": "6.5.x",
     "chalk": "^1.1.1",
     "commander": "~2.9.0",
-    "css-loader": "~0.23.0",
+    "css-loader": "~0.26.0",
     "extract-text-webpack-plugin": "~1.0.1",
-    "file-loader": "~0.8.4",
+    "file-loader": "~0.9.0",
     "json-loader": "~0.5.4",
-    "less": "~2.6.0",
-    "less-loader": "~2.2.0",
-    "less-plugin-npm-import": "^2.1.0",
     "map-json-webpack-plugin": "~1.1.0",
-    "postcss": "^5.0.19",
-    "postcss-loader": "~0.8.0",
-    "rucksack-css": "~0.8.5",
-    "ts-loader": "^0.9.1",
+    "node-sass": "^3.13.0",
+    "node-sass-package-importer": "^2.0.4",
+    "postcss": "^5.2.5",
+    "postcss-loader": "~1.1.1",
+    "sass-loader": "^4.0.2",
+    "ts-loader": "^1.2.2",
     "typescript": "^2.0.3",
-    "url-loader": "~0.5.6",
-    "webpack": "~1.12.2"
+    "url-loader": "~0.5.7",
+    "webpack": "~1.13.3"
   },
   "devDependencies": {
     "babel-cli": "^6.7.5",
     "babel-core": "^6.7.6",
     "babel-eslint": "^6.1.2",
     "babel-istanbul": "^0.7.0",
+    "bourbon": "^4.2.7",
     "coveralls": "~2.11.4",
     "eslint": "^2.7.0",
     "eslint-config-airbnb": "^6.2.0",

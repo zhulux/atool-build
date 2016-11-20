@@ -17,7 +17,7 @@ webpackJsonp([1,0],[
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"index":"index___1Xnek","foo":"foo___26SGr"};
+	module.exports = {"index":"index-module__index--17UW","foo":"index-module__foo--18ti"};
 
 /***/ }
 ]);

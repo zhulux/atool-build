@@ -3,8 +3,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import getBabelCommonConfig from './getBabelCommonConfig';
 import getTSCommonConfig from './getTSCommonConfig';
 import { existsSync } from 'fs';
-import { join, resolve } from 'path';
-import rucksack from 'rucksack-css';
+import { join } from 'path';
 import autoprefixer from 'autoprefixer';
 
 export default function getWebpackCommonConfig(args) {
@@ -18,19 +17,6 @@ export default function getWebpackCommonConfig(args) {
   const babelQuery = getBabelCommonConfig();
   const tsQuery = getTSCommonConfig();
   tsQuery.declaration = false;
-
-  let theme = {};
-  if (pkg.theme && typeof(pkg.theme) === 'string') {
-    let cfgPath = pkg.theme;
-    // relative path
-    if (cfgPath.charAt(0) === '.') {
-      cfgPath = resolve(args.cwd, cfgPath);
-    }
-    const getThemeConfig = require(cfgPath);
-    theme = getThemeConfig();
-  } else if (pkg.theme && typeof(pkg.theme) === 'object') {
-    theme = pkg.theme;
-  }
 
   const emptyBuildins = [
     'child_process',
@@ -120,20 +106,20 @@ export default function getWebpackCommonConfig(args) {
         },
         {
           test(filePath) {
-            return /\.less$/.test(filePath) && !/\.module\.less$/.test(filePath);
+            return /\.scss$/.test(filePath) && !/\.module\.scss$/.test(filePath);
           },
           loader: ExtractTextPlugin.extract(
             'css?sourceMap&-autoprefixer!' +
             'postcss-loader!' +
-            `less-loader?{"sourceMap":true,"modifyVars":${JSON.stringify(theme)}}`
+            'sass-loader?{"sourceMap":true}'
           ),
         },
         {
-          test: /\.module\.less$/,
+          test: /\.module\.scss$/,
           loader: ExtractTextPlugin.extract(
-            'css?sourceMap&modules&localIdentName=[local]___[hash:base64:5]&-autoprefixer!' +
+            'css?sourceMap&modules&localIdentName=[name]__[local]--[hash:base64:4]&-autoprefixer!' +
             'postcss-loader!' +
-            `less-loader?{"sourceMap":true,"modifyVars":${JSON.stringify(theme)}}`
+            'sass-loader?{"sourceMap":true}'
           ),
         },
         { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&minetype=application/font-woff' },
@@ -148,9 +134,8 @@ export default function getWebpackCommonConfig(args) {
     },
 
     postcss: [
-      rucksack(),
       autoprefixer({
-        browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4'],
+        browsers: ['last 2 versions', 'ie > 10', 'iOS > 9', 'Android >= 5'],
       }),
     ],
 

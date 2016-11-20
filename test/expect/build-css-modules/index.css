@@ -1,14 +1,10 @@
-.index___1Xnek {
+.index-module__index--17UW {
   color: red;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-}
-.index___1Xnek .foo___26SGr {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
+  display: flex; }
+  .index-module__index--17UW .index-module__foo--18ti {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }

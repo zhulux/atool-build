@@ -1,0 +1,10 @@
+.b {
+  color: red; }
+
+.a {
+  color: "#ccc";
+  transform: translateX(1); }
+  .a::after {
+    clear: both;
+    content: "";
+    display: table; }

@@ -42,8 +42,8 @@ describe('lib/build', function () {
   it('should support class property', () => {
     return testBuild({}, 'build-class-property');
   });
-  it('should support less', () => {
-    return testBuild({}, 'build-less');
+  it('should support sass', () => {
+    return testBuild({}, 'build-sass');
   });
   it('should support css modules', () => {
     return testBuild({}, 'build-css-modules');
@@ -90,8 +90,5 @@ describe('lib/build', function () {
   });
   it('should support typescript', () => {
     return testBuild({}, 'build-typescript');
-  });
-  it('should support theme', () => {
-    return testBuild({}, 'build-theme');
   });
 });
